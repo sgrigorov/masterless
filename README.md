@@ -1,1 +1,1 @@
-# masterless
+# masterless puppet
