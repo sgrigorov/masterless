@@ -1,5 +1,2 @@
 touch /tmp/install1.sh
-if [(lsb_release -i | sed 's/^Distributor ID:\t// ') -eq 'Fedora']
-than
-  touch /tmp/install.yes.sh
-  exit 0
+lsb_release -i | sed 's/^Distributor ID:\t// ' | grep Fedoraa > /dev/null && touch /tmp/install1.yes.sh
