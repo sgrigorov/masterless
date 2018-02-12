@@ -10,6 +10,6 @@ lsb_release -i | sed 's/^Distributor ID:\t// ' | grep Fedora > /dev/null && {
 }
 grep \^ID= /etc/os-release | grep "centos" > /dev/null && {
   rpm -ivh https://yum.puppetlabs.com/puppet5/puppet5-release-el-7.noarch.rpm
-  yum install git puppet -y
+  yum install git puppet rubygems -y
   gem install r10k
 }
