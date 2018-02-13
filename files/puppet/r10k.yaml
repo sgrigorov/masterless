@@ -8,4 +8,4 @@
   # branch in /etc/puppetlabs/code/environments
   :my-org:
     remote: 'https://github.com/sgrigorov/masterless.git'
-    basedir: '/etc/puppet/code/environments
+    basedir: '/etc/puppet/code/environments'
