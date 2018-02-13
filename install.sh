@@ -6,14 +6,17 @@ case $test_os_id in
   debian)
     echo "OS - Debian"
     apt-get install puppet r10k git -y
+    exit
   ;;
   ubuntu)
     echo "OS - Ubuntu"
     apt-get install puppet r10k git -y
+    exit
   ;;
   zorin)
     echo "OS - ZorinOS"
     apt-get install puppet r10k git -y
+    exit
   ;;
   centos)
     echo "OS - CentOS"
@@ -26,6 +29,7 @@ case $test_os_id in
     echo "OS - Fedora"
     dnf install puppet git -y
     gem install r10k
+    exit
   ;;
   *)
     echo "OS - Other"
