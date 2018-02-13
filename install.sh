@@ -2,6 +2,7 @@ install_puppetlabs_dir=/etc/puppetlabs
 install_puppet_dir=/etc/puppet
 
 test_os_id=`grep \^ID= /etc/os-release | sed "s/ID=//"| sed "s/\"//g"`
+echo "OS:"$test_os_id"<"
 case $test_os_id in
   debian)
     echo "OS - Debian"
