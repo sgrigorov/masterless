@@ -35,4 +35,4 @@ esac
 
 mkdir $install_puppet_dir/r10k
 wget https://raw.githubusercontent.com/sgrigorov/masterless/production/files/puppet/r10k.yaml -P $install_puppet_dir/r10k
-r10k deploy environment -p
+/usr/local/bin/r10k deploy environment -p
