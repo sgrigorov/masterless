@@ -1,3 +1,6 @@
+install_puppetlabs_dir=/etc/puppetlabs
+install_puppet_dir=/etc/puppet
+
 test_os_id=`grep \^ID= /etc/os-release | sed "s/ID=//"`
 case $test_os_id in
   debian)
@@ -27,3 +30,5 @@ case $test_os_id in
     echo "OS - Other"
   ;;
 esac
+
+mkdir $install_puppet_dir/r10k
