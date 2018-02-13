@@ -15,7 +15,7 @@ case $test_os_id in
     echo "OS - ZorinOS"
     apt-get install puppet r10k git -y
   ;;
-  centos)
+  "centos")
     echo "OS - CentOS"
     rpm -ivh https://yum.puppetlabs.com/puppet5/puppet5-release-el-7.noarch.rpm
     yum install git puppet rubygems -y
