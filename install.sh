@@ -1,7 +1,7 @@
 install_puppetlabs_dir=/etc/puppetlabs
 install_puppet_dir=/etc/puppet
 
-test_os_id=`grep \^ID= /etc/os-release | sed "s/ID=//"`
+test_os_id=`grep \^ID= /etc/os-release | sed "s/ID=//"| sed "s/\"//g"`
 case $test_os_id in
   debian)
     echo "OS - Debian"
@@ -15,7 +15,7 @@ case $test_os_id in
     echo "OS - ZorinOS"
     apt-get install puppet r10k git -y
   ;;
-  "centos")
+  centos)
     echo "OS - CentOS"
     rpm -ivh https://yum.puppetlabs.com/puppet5/puppet5-release-el-7.noarch.rpm
     yum install git puppet rubygems -y
