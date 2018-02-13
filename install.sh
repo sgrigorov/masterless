@@ -1,4 +1,4 @@
-install_puppet_dir=/etc/puppet
+puppet_dir=puppet
 
 test_os_id=`grep \^ID= /etc/os-release | sed "s/ID=//"| sed "s/\"//g"`
 echo "OS:"$test_os_id"<"
@@ -17,7 +17,7 @@ case $test_os_id in
   ;;
   centos)
     echo "OS - CentOS"
-    install_puppet_dir=/etc/puppetlabs
+    puppet_dir=puppetlabs
     rpm -ivh https://yum.puppetlabs.com/puppet5/puppet5-release-el-7.noarch.rpm
     yum install git puppet vim rubygems -y
     gem install r10k
@@ -33,6 +33,6 @@ case $test_os_id in
   ;;
 esac
 
-mkdir $install_puppet_dir/r10k
-curl https://raw.githubusercontent.com/sgrigorov/masterless/production/files/puppet/r10k.yaml > $install_puppet_dir/r10k/r10k.yaml
-/usr/local/bin/r10k deploy environment -p -c $install_puppet_dir/r10k/r10k.yaml
+mkdir /etc/$puppet_dir/r10k
+curl https://raw.githubusercontent.com/sgrigorov/masterless/production/files/$puppet_dir/r10k.yaml > /etc/$puppet_dir/r10k/r10k.yaml
+/usr/local/bin/r10k deploy environment -p -c /etc/$puppet_dir/r10k/r10k.yaml
