@@ -32,4 +32,4 @@ case $test_os_id in
 esac
 
 mkdir $install_puppet_dir/r10k
-wget https://raw.githubusercontent.com/sgrigorov/masterless/master/files/r10k.yaml -O $install_puppet_dir/r10k
+wget https://raw.githubusercontent.com/sgrigorov/masterless/master/files/r10k.yaml -P $install_puppet_dir/r10k
