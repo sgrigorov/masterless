@@ -1,17 +1,17 @@
 test_os_id=`grep \^ID= /etc/os-release | sed "s/ID=//"`
-echo $test_os_id
+#echo $test_os_id
 case $test_os_id in
   debian)
     echo "OS - Debian"
-    apt-get install puppet r10k git
+    apt-get install puppet r10k git -y
   ;;
   ubuntu)
     echo "OS - Ubuntu"
-    apt-get install puppet r10k git
+    apt-get install puppet r10k git -y
   ;;
   zorin)
     echo "OS - ZorinOS"
-    apt-get install puppet r10k git
+    apt-get install puppet r10k git -y
   ;;
   centos)
     echo "OS - CentOS"
