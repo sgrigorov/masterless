@@ -7,6 +7,9 @@ case $test_os_id in
   ubuntu)
     echo "OS - Ubuntu"
   ;;
+  zorin)
+    echo "OS - ZorinOS"
+  ;;
   centos)
     echo "OS - CentOS"
   ;;
