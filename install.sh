@@ -1,18 +1,30 @@
-touch /tmp/install2
-grep \^ID= /etc/os-release | grep "centos" > /dev/null && {
-  rpm -ivh https://yum.puppetlabs.com/puppet5/puppet5-release-el-7.noarch.rpm
-  yum install git puppet rubygems -y
-  gem install r10k
-}
-lsb_release -i | sed 's/^Distributor ID:\t// ' | grep Ubuntu > /dev/null && {
-  #touch /tmp/install.ubuntu.sh
-  touch /tmp/install.ubuntu.sh
-  apt-get install puppet r10k git
-}
-lsb_release -i | sed 's/^Distributor ID:\t// ' | grep Fedora > /dev/null && {
-  touch /tmp/install.fedora1.sh
-  rpm -qa puppet | sed 's/-.*//' | grep puppet > /dev/null || {
+test_os_id=`grep \^ID= /etc/os-release | sed "s/ID=//"`
+echo $test_os_id
+case $test_os_id in
+  debian)
+    echo "OS - Debian"
+    apt-get install puppet r10k git
+  ;;
+  ubuntu)
+    echo "OS - Ubuntu"
+    apt-get install puppet r10k git
+  ;;
+  zorin)
+    echo "OS - ZorinOS"
+    apt-get install puppet r10k git
+  ;;
+  centos)
+    echo "OS - CentOS"
+    rpm -ivh https://yum.puppetlabs.com/puppet5/puppet5-release-el-7.noarch.rpm
+    yum install git puppet rubygems -y
+    gem install r10k
+  ;;
+  fedora)
+    echo "OS - Fedora"
     dnf install puppet git -y
-  }
-}
-
+    gem install r10k
+  ;;
+  *)
+    echo "OS - Other"
+  ;;
+esac
