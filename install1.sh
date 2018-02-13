@@ -17,5 +17,6 @@ case $test_os_id in
     echo "OS - Fedora"
   ;;
   *)
+    echo "OS - Other"
   ;;
 esac
