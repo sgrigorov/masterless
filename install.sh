@@ -28,6 +28,7 @@ case $test_os_id in
   ;;
   *)
     echo "OS - Other"
+    exit
   ;;
 esac
 
