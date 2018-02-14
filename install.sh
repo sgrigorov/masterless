@@ -25,9 +25,7 @@ case $test_os_id in
     yum install git puppet vim -y
     source /etc/profile.d/puppet-agent.sh
     /opt/puppetlabs/puppet/bin/gem install r10k
-    if ! echo $PATH | grep -q /usr/local/bin ; then
-      export PATH=$PATH:/usr/local/bin
-    fi
+    ln -s /opt/puppetlabs/puppet/bin/r10k /opt/puppetlabs/bin/r10k
   ;;
   fedora)
     echo "OS - Fedora"
