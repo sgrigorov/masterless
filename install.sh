@@ -22,7 +22,7 @@ case $test_os_id in
     echo "OS - CentOS"
     puppet_dir=puppetlabs
     rpm -ivh https://yum.puppetlabs.com/puppet5/puppet5-release-el-7.noarch.rpm
-    yum install git puppet vim -y
+    yum install git puppet -y
     source /etc/profile.d/puppet-agent.sh
     /opt/puppetlabs/puppet/bin/gem install r10k
     ln -s /opt/puppetlabs/puppet/bin/r10k /opt/puppetlabs/bin/r10k
@@ -43,3 +43,5 @@ mkdir /etc/$puppet_dir/r10k
 curl https://raw.githubusercontent.com/sgrigorov/masterless/production/files/$puppet_dir/r10k.yaml > /etc/$puppet_dir/r10k/r10k.yaml
 #/usr/local/bin/r10k deploy environment -p -c /etc/$puppet_dir/r10k/r10k.yaml
 r10k deploy environment -p -c /etc/$puppet_dir/r10k/r10k.yaml
+# copy puppet.conf
+# puppet agent -t
