@@ -23,7 +23,7 @@ case $test_os_id in
     puppet_dir=puppetlabs
     rpm -ivh https://yum.puppetlabs.com/puppet5/puppet5-release-el-7.noarch.rpm
     yum install git puppet vim -y
-    sh /etc/profile.d/puppet-agent.sh
+    source /etc/profile.d/puppet-agent.sh
     /opt/puppetlabs/puppet/bin/gem install r10k
   ;;
   fedora)
