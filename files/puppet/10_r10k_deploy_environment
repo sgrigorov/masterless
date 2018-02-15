@@ -1,0 +1,2 @@
+
+r10k deploy environment -p -c /etc/puppet/r10k/r10k.yaml
