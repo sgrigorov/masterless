@@ -47,4 +47,6 @@ r10k deploy environment -p -c /etc/$puppet_dir/r10k/r10k.yaml
 #chmod 755 /etc/cron.hourly/10r10k_deploy_environment
 # copy puppet.conf
 # puppet agent -t
-puppet apply /etc/$puppet_dir/code/environments/production/manifests/site.pp
+#puppet apply /etc/$puppet_dir/code/environments/production/manifests/site.pp
+puppet apply  /etc/puppetlabs/code/environments/production/manifests/site.pp 
+
