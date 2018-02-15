@@ -6,6 +6,9 @@ case $test_os_id in
   debian)
     echo "OS - Debian"
     apt-get install puppet r10k git -y
+    #wget http://apt.puppetlabs.com/puppetlabs-release-wheezy.deb
+    #dpkg -i puppetlabs-release-wheezy.deb
+    #apt-get update
     exit
   ;;
   ubuntu)
@@ -22,6 +25,8 @@ case $test_os_id in
     echo "OS - CentOS"
     puppet_dir=puppetlabs
     rpm -ivh https://yum.puppetlabs.com/puppet5/puppet5-release-el-7.noarch.rpm
+    #rpm -ivh https://yum.puppetlabs.com/puppet5/puppet5-release-el-6.noarch.rpm
+    #rpm -ivh http://yum.puppetlabs.com/puppetlabs-release-el-6.noarch.rpm
     yum install git puppet -y
     source /etc/profile.d/puppet-agent.sh
     /opt/puppetlabs/puppet/bin/gem install r10k
@@ -42,6 +47,7 @@ esac
 mkdir /etc/$puppet_dir/r10k
 curl https://raw.githubusercontent.com/sgrigorov/masterless/production/files/$puppet_dir/r10k.yaml > /etc/$puppet_dir/r10k/r10k.yaml
 #/usr/local/bin/r10k deploy environment -p -c /etc/$puppet_dir/r10k/r10k.yaml
+#https://github.com/adrienthebo/r10k/blob/master/doc/dynamic-environments/quickstart.mkd
 r10k deploy environment -p -c /etc/$puppet_dir/r10k/r10k.yaml
 #curl https://raw.githubusercontent.com/sgrigorov/masterless/production/files/$puppet_dir/10_r10k_deploy_environment /etc/cron.hourly/10r10k_deploy_environment
 #chmod 755 /etc/cron.hourly/10r10k_deploy_environment
