@@ -6,10 +6,16 @@ echo "OS:"$test_os_id"<"
 case $test_os_id in
   debian)
     echo "OS - Debian"
-    apt-get install puppet r10k git -y
+    #apt-get install puppet r10k git -y
     # To enable the repository:
-    #wget http://apt.puppetlabs.com/puppet5-release-jessie.deb # Debian 8 (Jessie)
-    #wget http://apt.puppetlabs.com/puppet5-release-stretch.deb # Debian 9 (Stretch)
+    case test_os_ver_id in
+      8)
+        wget http://apt.puppetlabs.com/puppet5-release-jessie.deb # Debian 8 (Jessie)
+      ;;
+      9)
+        wget http://apt.puppetlabs.com/puppet5-release-stretch.deb # Debian 9 (Stretch)
+      ;;
+    esac
     #dpkg -i puppet5-release-stretch.deb
     #apt-get update
     #apt-get install puppet
@@ -17,9 +23,12 @@ case $test_os_id in
   ;;
   ubuntu)
     echo "OS - Ubuntu"
-    apt-get install puppet r10k git -y
-    exit
-  ;;
+    #apt-get install puppet r10k git -y
+    # To enable the repository:
+    wget http://apt.puppetlabs.com/puppet5-release-xenial.deb # Ubuntu 16.04 (Xenial Xerus)
+    # http://apt.puppetlabs.com/puppet-release-xenial.deb
+    # http://apt.puppetlabs.com/puppet5-release-xenial.deb
+    # http://apt.puppetlabs.com/puppetlabs-release-pc1-xenial.deb
   zorin)
     echo "OS - ZorinOS"
     apt-get install puppet r10k git -y
