@@ -43,5 +43,7 @@ mkdir /etc/$puppet_dir/r10k
 curl https://raw.githubusercontent.com/sgrigorov/masterless/production/files/$puppet_dir/r10k.yaml > /etc/$puppet_dir/r10k/r10k.yaml
 #/usr/local/bin/r10k deploy environment -p -c /etc/$puppet_dir/r10k/r10k.yaml
 r10k deploy environment -p -c /etc/$puppet_dir/r10k/r10k.yaml
+curl https://raw.githubusercontent.com/sgrigorov/masterless/production/files/$puppet_dir/10_r10k_deploy_environment /etc/cron.hourly/10r10k_deploy_environment
+chmod 755 /etc/cron.hourly/10r10k_deploy_environment
 # copy puppet.conf
 # puppet agent -t
