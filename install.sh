@@ -6,10 +6,12 @@ case $test_os_id in
   debian)
     echo "OS - Debian"
     apt-get install puppet r10k git -y
+    # To enable the repository:
     #wget http://apt.puppetlabs.com/puppet5-release-jessie.deb # Debian 8 (Jessie)
     #wget http://apt.puppetlabs.com/puppet5-release-stretch.deb # Debian 9 (Stretch)
-    #dpkg -i puppetlabs-release-wheezy.deb
+    #dpkg -i puppet5-release-stretch.deb
     #apt-get update
+    #apt-get install puppet
     exit
   ;;
   ubuntu)
