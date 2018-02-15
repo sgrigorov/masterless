@@ -37,18 +37,27 @@ case $test_os_id in
   centos)
     echo "OS - CentOS"
     puppet_dir=puppetlabs
-    rpm -ivh https://yum.puppetlabs.com/puppet5/puppet5-release-el-7.noarch.rpm
+    # To enable the repository:
+    case test_os_ver_id in
+      6)
+        rpm -ivh https://yum.puppetlabs.com/puppet5/puppet5-release-el-6.noarch.rpm
+      ;;
+      7)
+        rpm -ivh https://yum.puppetlabs.com/puppet5/puppet5-release-el-7.noarch.rpm
+      ;;
+    esac
     #rpm -ivh https://yum.puppetlabs.com/puppet5/puppet5-release-el-6.noarch.rpm
     #rpm -ivh http://yum.puppetlabs.com/puppetlabs-release-el-6.noarch.rpm
-    yum install git puppet -y
+    yum install git puppet-agent -y
     source /etc/profile.d/puppet-agent.sh
     /opt/puppetlabs/puppet/bin/gem install r10k
     ln -s /opt/puppetlabs/puppet/bin/r10k /opt/puppetlabs/bin/r10k
   ;;
   fedora)
     echo "OS - Fedora"
-    dnf install puppet git -y
-    gem install r10k
+    rpm -ivh http://yum.puppetlabs.com/puppet/puppet5-release-fedora-26.noarch.rpm
+    /opt/puppetlabs/puppet/bin/gem install r10k
+    ln -s /opt/puppetlabs/puppet/bin/r10k /opt/puppetlabs/bin/r10k
     exit
   ;;
   *)
