@@ -1,2 +1,2 @@
 include foo
-include cron-puppet
+include cronpuppet
