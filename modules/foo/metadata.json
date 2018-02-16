@@ -1,0 +1,30 @@
+{
+  "name": "foo",
+  "version": "0.0.1",
+  "author": "Stan G",
+  "summary": "Test foo module",
+  "license": "Apache-2.0",
+  "source": "https://github.com/sgrigorov/masterless/blob/production/modules/foo",
+  "dependencies": [
+    { "name":"puppetlabs/stdlib","version_requirement":">= 4.13.1 < 5.0.0" }
+  ],
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "RedHat",
+      "operatingsystemrelease": [
+        "5",
+        "6",
+        "7"
+      ]
+    },
+    {
+      "operatingsystem": "CentOS",
+      "operatingsystemrelease": [
+        "5",
+        "6",
+        "7"
+      ]
+    }
+  ],
+  "description": "Foo module written by me - Stan"
+}
