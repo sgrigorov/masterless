@@ -66,7 +66,7 @@ if [ -f "/etc/os-release" ]; then
       exit
     ;;
   esac
-elif [ grep "CentOS release 6" /etc/centos-release ]; then
+elif grep "CentOS release 6" /etc/centos-release ; then
   rpm -ivh https://yum.puppetlabs.com/puppet5/puppet5-release-el-6.noarch.rpm
   yum install git puppet-agent -y
 fi
