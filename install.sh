@@ -1,14 +1,12 @@
-puppet_dir=puppet
-
 test_os_id=`grep \^ID= /etc/os-release | sed "s/ID=//"| sed "s/\"//g"`
-test_os_ver_id=`grep \^VERSION_ID= /etc/os-release | sed "s/ID=//"| sed "s/\"//g"`
+test_os_ver_id=`grep \^VERSION_ID= /etc/os-release | sed "s/VERSION_ID=//"| sed "s/\"//g"`
 echo "OS:"$test_os_id"<"
 case $test_os_id in
   debian)
     echo "OS - Debian"
     #apt-get install puppet r10k git -y
     # To enable the repository:
-    case test_os_ver_id in
+    case $test_os_ver_id in
       8)
         # Debian 8 (Jessie)
         wget -O /tmp/puppet5-release-jessie.deb http://apt.puppetlabs.com/puppet5-release-jessie.deb
