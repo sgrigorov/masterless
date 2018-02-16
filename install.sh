@@ -43,9 +43,6 @@ case $test_os_id in
     echo "OS - CentOS"
     # To enable the repository:
     case test_os_ver_id in
-      6)
-        rpm -ivh https://yum.puppetlabs.com/puppet5/puppet5-release-el-6.noarch.rpm
-      ;;
       7)
         rpm -ivh https://yum.puppetlabs.com/puppet5/puppet5-release-el-7.noarch.rpm
       ;;
@@ -57,9 +54,13 @@ case $test_os_id in
   fedora)
     echo "OS - Fedora"
     rpm -ivh http://yum.puppetlabs.com/puppet/puppet5-release-fedora-26.noarch.rpm
+    dnf install git puppet-agent -y
   ;;
   *)
     echo "OS - Other"
+         # 6)
+        rpm -ivh https://yum.puppetlabs.com/puppet5/puppet5-release-el-6.noarch.rpm
+        yum install git puppet-agent -y
     exit
   ;;
 esac
