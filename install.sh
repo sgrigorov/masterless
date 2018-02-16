@@ -1,4 +1,4 @@
-function apt_install (
+function apt_install {
     apt-get update
     apt-get -y install puppet-agent git
 }
