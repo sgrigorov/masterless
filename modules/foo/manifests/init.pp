@@ -13,5 +13,5 @@ class foo {
     #unless  => "puppet module list | grep ${module_stdlib}",
     #path    => ['/bin', '/opt/puppetlabs/bin'],
     #user    => "root",
-  }
+  #}
 }
