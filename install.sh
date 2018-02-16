@@ -84,9 +84,3 @@ r10k deploy environment -p -c /etc/puppetlabs/r10k/r10k.yaml
 # puppet agent -t
 #puppet apply /etc/$puppet_dir/code/environments/production/manifests/site.pp
 puppet apply  /etc/puppetlabs/code/environments/production/manifests/site.pp 
-
-
-
-
-
-
