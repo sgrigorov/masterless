@@ -11,7 +11,6 @@ class foo {
   exec { 'puppet_module_nginx':
     command => "/opt/puppetlabs/bin/puppet module install puppet-nginx",
     unless  => "/opt/puppetlabs/bin/puppet module list | grep puppet-nginx",
-    #path    => ['/bin', '/opt/puppetlabs/bin'],
-    #user    => "root",
+    path    => ['/bin'],
   }
 }
