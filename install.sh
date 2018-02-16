@@ -22,24 +22,26 @@ case $test_os_id in
     esac
     apt-get update
     apt-get -y install puppet-agent git
-    exit
   ;;
   ubuntu)
     echo "OS - Ubuntu"
-    #apt-get install puppet r10k git -y
     # To enable the repository:
-    wget http://apt.puppetlabs.com/puppet5-release-xenial.deb # Ubuntu 16.04 (Xenial Xerus)
+    wget -O /tmp/puppet5-release-xenial.deb http://apt.puppetlabs.com/puppet5-release-xenial.deb # Ubuntu 16.04 (Xenial Xerus)
+    dpkg -i /tmp/puppet5-release-xenial.deb
+    apt-get update
+    apt-get -y install puppet-agent git
     # http://apt.puppetlabs.com/puppet-release-xenial.deb
     # http://apt.puppetlabs.com/puppet5-release-xenial.deb
     # http://apt.puppetlabs.com/puppetlabs-release-pc1-xenial.deb
   zorin)
     echo "OS - ZorinOS"
-    apt-get install puppet r10k git -y
-    exit
+    wget -O /tmp/puppet5-release-xenial.deb http://apt.puppetlabs.com/puppet5-release-xenial.deb # Ubuntu 16.04 (Xenial Xerus)
+    dpkg -i /tmp/puppet5-release-xenial.deb
+    apt-get update
+    apt-get -y install puppet-agent git
   ;;
   centos)
     echo "OS - CentOS"
-    puppet_dir=puppetlabs
     # To enable the repository:
     case test_os_ver_id in
       6)
@@ -56,9 +58,6 @@ case $test_os_id in
   fedora)
     echo "OS - Fedora"
     rpm -ivh http://yum.puppetlabs.com/puppet/puppet5-release-fedora-26.noarch.rpm
-    /opt/puppetlabs/puppet/bin/gem install r10k
-    ln -s /opt/puppetlabs/puppet/bin/r10k /opt/puppetlabs/bin/r10k
-    exit
   ;;
   *)
     echo "OS - Other"
