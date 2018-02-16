@@ -9,8 +9,8 @@ class foo {
   #And the /opt/puppetlabs/bin is a path where for the puppet binary exists in my installation.
   $module_stdlib = 'puppet-nginx'
   exec { 'puppet_module_nginx':
-    command => "puppet module install ${module_stdlib}",
-    unless  => "puppet module list | grep ${module_stdlib}",
+    command => "/opt/puppetlabs/bin/puppet module install puppet-nginx",
+    unless  => "/opt/puppetlabs/bin/puppet module list | grep puppet-nginx",
     path    => ['/bin', '/opt/puppetlabs/bin'],
     user    => "root",
   }
