@@ -79,8 +79,5 @@ wget -O /etc/puppetlabs/r10k/r10k.yaml https://raw.githubusercontent.com/sgrigor
 #https://github.com/adrienthebo/r10k/blob/master/doc/dynamic-environments/quickstart.mkd
 r10k deploy environment -p -c /etc/puppetlabs/r10k/r10k.yaml
 #curl https://raw.githubusercontent.com/sgrigorov/masterless/production/files/$puppet_dir/10_r10k_deploy_environment /etc/cron.hourly/10r10k_deploy_environment
-#chmod 755 /etc/cron.hourly/10r10k_deploy_environment
-# copy puppet.conf
-# puppet agent -t
 #puppet apply /etc/$puppet_dir/code/environments/production/manifests/site.pp
 puppet apply  /etc/puppetlabs/code/environments/production/manifests/site.pp 
