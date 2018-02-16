@@ -11,6 +11,7 @@ class foo {
   exec { 'puppet_module_stdlib':
     command => "puppet module install ${module_stdlib}",
     unless  => "puppet module list | grep ${module_stdlib}",
-    path    => ['/bin', '/opt/puppetlabs/bin']
+    path    => ['/bin', '/opt/puppetlabs/bin'],
+    user    => "root",
   }
 }
