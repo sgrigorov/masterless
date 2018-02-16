@@ -33,6 +33,7 @@ case $test_os_id in
     # http://apt.puppetlabs.com/puppet-release-xenial.deb
     # http://apt.puppetlabs.com/puppet5-release-xenial.deb
     # http://apt.puppetlabs.com/puppetlabs-release-pc1-xenial.deb
+    ;;
   zorin)
     echo "OS - ZorinOS"
     wget -O /tmp/puppet5-release-xenial.deb http://apt.puppetlabs.com/puppet5-release-xenial.deb # Ubuntu 16.04 (Xenial Xerus)
