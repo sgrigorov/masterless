@@ -10,15 +10,18 @@ case $test_os_id in
     # To enable the repository:
     case test_os_ver_id in
       8)
-        wget http://apt.puppetlabs.com/puppet5-release-jessie.deb # Debian 8 (Jessie)
+        # Debian 8 (Jessie)
+        wget -O /tmp/puppet5-release-jessie.deb http://apt.puppetlabs.com/puppet5-release-jessie.deb
+        dpkg -i /tmp/puppet5-release-jessie.deb 
       ;;
       9)
-        wget http://apt.puppetlabs.com/puppet5-release-stretch.deb # Debian 9 (Stretch)
+        # Debian 9 (Stretch)
+        wget -O /tmp/puppet5-release-stretch.deb http://apt.puppetlabs.com/puppet5-release-stretch.deb
+        dpkg -i /tmp/puppet5-release-stretch.deb
       ;;
     esac
-    #dpkg -i puppet5-release-stretch.deb
-    #apt-get update
-    #apt-get install puppet
+    apt-get update
+    apt-get -y install puppet-agent git
     exit
   ;;
   ubuntu)
@@ -49,9 +52,6 @@ case $test_os_id in
     #rpm -ivh https://yum.puppetlabs.com/puppet5/puppet5-release-el-6.noarch.rpm
     #rpm -ivh http://yum.puppetlabs.com/puppetlabs-release-el-6.noarch.rpm
     yum install git puppet-agent -y
-    source /etc/profile.d/puppet-agent.sh
-    /opt/puppetlabs/puppet/bin/gem install r10k
-    ln -s /opt/puppetlabs/puppet/bin/r10k /opt/puppetlabs/bin/r10k
   ;;
   fedora)
     echo "OS - Fedora"
@@ -65,12 +65,14 @@ case $test_os_id in
     exit
   ;;
 esac
-
-mkdir /etc/$puppet_dir/r10k
-curl https://raw.githubusercontent.com/sgrigorov/masterless/production/files/$puppet_dir/r10k.yaml > /etc/$puppet_dir/r10k/r10k.yaml
+source /etc/profile.d/puppet-agent.sh
+/opt/puppetlabs/puppet/bin/gem install r10k
+ln -s /opt/puppetlabs/puppet/bin/r10k /opt/puppetlabs/bin/r10k
+mkdir /etc/puppetlabs/r10k
+curl https://raw.githubusercontent.com/sgrigorov/masterless/production/files/puppetlabs/r10k.yaml > /etc/puppetlabs/r10k/r10k.yaml
 #/usr/local/bin/r10k deploy environment -p -c /etc/$puppet_dir/r10k/r10k.yaml
 #https://github.com/adrienthebo/r10k/blob/master/doc/dynamic-environments/quickstart.mkd
-r10k deploy environment -p -c /etc/$puppet_dir/r10k/r10k.yaml
+r10k deploy environment -p -c /etc/puppetlabs/r10k/r10k.yaml
 #curl https://raw.githubusercontent.com/sgrigorov/masterless/production/files/$puppet_dir/10_r10k_deploy_environment /etc/cron.hourly/10r10k_deploy_environment
 #chmod 755 /etc/cron.hourly/10r10k_deploy_environment
 # copy puppet.conf
