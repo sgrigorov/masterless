@@ -1,11 +1,18 @@
 # conditional statements node definition
 # https://puppet.com/docs/puppet/5.3/lang_conditional.html
+# variable scope
+# https://puppet.com/docs/puppet/5.3/lang_scope.html
+# ecternal node clasifier
+# https://puppet.com/docs/puppet/5.3/nodes_external.html
 
 #include foo
 include cronpuppet
 
 #The default node
 node default {
+  if $facts['dmi']['board']['serial_number'] == 'PCCKA00QE0Z07O' {
+    warning('This is your laptop')
+  }
 }
 
 #Multiple names
