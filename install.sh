@@ -31,6 +31,7 @@ if [ -f "/etc/os-release" ]; then
     ;;
     ubuntu)
       echo "OS - Ubuntu"
+      echo "Ubuntu" $test_os_ver_id
       # To enable the repository:
       wget -O /tmp/puppet5-release-xenial.deb http://apt.puppetlabs.com/puppet5-release-xenial.deb # Ubuntu 16.04 (Xenial Xerus)
       dpkg -i /tmp/puppet5-release-xenial.deb
@@ -41,6 +42,7 @@ if [ -f "/etc/os-release" ]; then
     ;;
     zorin)
       echo "OS - ZorinOS"
+      echo "Ubuntu" $test_os_ver_id
       wget -O /tmp/puppet5-release-xenial.deb http://apt.puppetlabs.com/puppet5-release-xenial.deb # Ubuntu 16.04 (Xenial Xerus)
       dpkg -i /tmp/puppet5-release-xenial.deb
       apt_install
