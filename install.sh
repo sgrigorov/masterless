@@ -12,21 +12,22 @@ if [ -f "/etc/os-release" ]; then
   case $test_os_id in
     debian)
       echo "OS - Debian"
-      #apt-get install puppet r10k git -y
       # To enable the repository:
       case $test_os_ver_id in
         8)
-          # Debian 8 (Jessie)
+          echo "Debian 8 (Jessie)"
           wget -O /tmp/puppet5-release-jessie.deb http://apt.puppetlabs.com/puppet5-release-jessie.deb
           dpkg -i /tmp/puppet5-release-jessie.deb 
+          apt_install
         ;;
         9)
-          # Debian 9 (Stretch)
+          echo "Debian 9 (Stretch)"
           wget -O /tmp/puppet5-release-stretch.deb http://apt.puppetlabs.com/puppet5-release-stretch.deb
           dpkg -i /tmp/puppet5-release-stretch.deb
+          apt_install
         ;;
       esac
-      apt_install
+
     ;;
     ubuntu)
       echo "OS - Ubuntu"
@@ -49,17 +50,28 @@ if [ -f "/etc/os-release" ]; then
       # To enable the repository:
       case $test_os_ver_id in
         7)
-          rpm -ivh https://yum.puppetlabs.com/puppet5/puppet5-release-el-7.noarch.rpm
+            echo "CentOS 7"            
+            rpm -ivh https://yum.puppetlabs.com/puppet5/puppet5-release-el-7.noarch.rpm
+            yum install git wget puppet-agent -y
         ;;
       esac
       #rpm -ivh https://yum.puppetlabs.com/puppet5/puppet5-release-el-6.noarch.rpm
       #rpm -ivh http://yum.puppetlabs.com/puppetlabs-release-el-6.noarch.rpm
-      yum install git wget puppet-agent -y
     ;;
     fedora)
       echo "OS - Fedora"
-      rpm -ivh http://yum.puppetlabs.com/puppet/puppet5-release-fedora-26.noarch.rpm
-      dnf install git puppet-agent -y
+      case $test_os_ver_id in
+        25)
+            echo "Fedora 25"
+            rpm -ivh http://yum.puppetlabs.com/puppet/puppet5-release-fedora-25.noarch.rpm
+            dnf install git puppet-agent -y
+        ;;
+            echo "Fedora 26-27"
+        26|27)
+            rpm -ivh http://yum.puppetlabs.com/puppet/puppet5-release-fedora-26.noarch.rpm
+            dnf install git puppet-agent -y
+        ;;
+      esac
     ;;
     *)
       echo "OS - Other"
@@ -67,8 +79,9 @@ if [ -f "/etc/os-release" ]; then
     ;;
   esac
 elif grep "CentOS release 6" /etc/centos-release ; then
-  rpm -ivh https://yum.puppetlabs.com/puppet5/puppet5-release-el-6.noarch.rpm
-  yum install git puppet-agent -y
+    echo "CentOS 6"    
+    rpm -ivh https://yum.puppetlabs.com/puppet5/puppet5-release-el-6.noarch.rpm
+    yum install git puppet-agent -y
 else
     exit
 fi
