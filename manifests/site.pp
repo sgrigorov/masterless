@@ -1,3 +1,6 @@
+# conditional statements node definition
+# https://puppet.com/docs/puppet/5.3/lang_conditional.html
+
 #include foo
 include cronpuppet
 
