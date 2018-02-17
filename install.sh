@@ -54,7 +54,7 @@ if [ -f "/etc/os-release" ]; then
       esac
       #rpm -ivh https://yum.puppetlabs.com/puppet5/puppet5-release-el-6.noarch.rpm
       #rpm -ivh http://yum.puppetlabs.com/puppetlabs-release-el-6.noarch.rpm
-      yum install wget puppet-agent -y
+      yum install git wget puppet-agent -y
     ;;
     fedora)
       echo "OS - Fedora"
