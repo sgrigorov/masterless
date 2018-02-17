@@ -30,12 +30,23 @@ if [ -f "/etc/os-release" ]; then
 
     ;;
     ubuntu)
-      echo "OS - Ubuntu"
-      echo "Ubuntu" $test_os_ver_id
-      # To enable the repository:
-      wget -O /tmp/puppet5-release-xenial.deb http://apt.puppetlabs.com/puppet5-release-xenial.deb # Ubuntu 16.04 (Xenial Xerus)
-      dpkg -i /tmp/puppet5-release-xenial.deb
-      apt_install
+        echo "OS - Ubuntu"
+        case $test_os_ver_id in
+            14.04)
+                echo "Ubuntu" $test_os_ver_id
+                # Ubuntu 14.04 (Trusty Tahr)
+                wget -O /tmp/puppet5-release-trusty.deb http://apt.puppetlabs.com/puppet5-release-trusty.deb
+                dpkg -i /tmp/puppet5-release-trusty.deb
+                apt_install
+             ;;
+            16.04)
+                echo "Ubuntu" $test_os_ver_id
+                # Ubuntu 16.04 (Xenial Xerus)
+                wget -O /tmp/puppet5-release-xenial.deb http://apt.puppetlabs.com/puppet5-release-xenial.deb
+                dpkg -i /tmp/puppet5-release-xenial.deb
+                apt_install
+             ;;
+        esac
       # http://apt.puppetlabs.com/puppet-release-xenial.deb
       # http://apt.puppetlabs.com/puppet5-release-xenial.deb
       # http://apt.puppetlabs.com/puppetlabs-release-pc1-xenial.deb
