@@ -2,8 +2,8 @@
 include cronpuppet
 
 #The default node
-#node default {
-#}
+node default {
+}
 
 #Multiple names
 #node 'www1.example.com', 'www2.example.com', 'www3.example.com' {
