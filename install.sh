@@ -39,7 +39,7 @@ if [ -f "/etc/os-release" ]; then
                 dpkg -i /tmp/puppet5-release-trusty.deb
                 apt_install
              ;;
-            16.04)
+            17.10|16.04)
                 echo "Ubuntu" $test_os_ver_id
                 # Ubuntu 16.04 (Xenial Xerus)
                 wget -O /tmp/puppet5-release-xenial.deb http://apt.puppetlabs.com/puppet5-release-xenial.deb
