@@ -8,11 +8,15 @@
 #include foo
 include cronpuppet
 
+class example {
+  if $facts['dmi']['board']['serial_number'] == 'PCCKA00QE0Z07O' {
+    notify {"Message from GitHub:site.pp":}
+  }
+}
+
 #The default node
 node default {
-  if $facts['dmi']['board']['serial_number'] == 'PCCKA00QE0Z07O' {
-    warning('This is your laptop')
-  }
+include example
 }
 
 #Multiple names
