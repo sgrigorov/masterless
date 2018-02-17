@@ -14,4 +14,3 @@ class foo {
         unless  => "/opt/puppetlabs/bin/puppet module list | /bin/grep puppet-nginx",
   }
 }
-}
