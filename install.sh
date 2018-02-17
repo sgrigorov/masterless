@@ -47,7 +47,7 @@ if [ -f "/etc/os-release" ]; then
     centos)
       echo "OS - CentOS"
       # To enable the repository:
-      case test_os_ver_id in
+      case $test_os_ver_id in
         7)
           rpm -ivh https://yum.puppetlabs.com/puppet5/puppet5-release-el-7.noarch.rpm
         ;;
