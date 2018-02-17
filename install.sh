@@ -66,8 +66,8 @@ if [ -f "/etc/os-release" ]; then
             rpm -ivh http://yum.puppetlabs.com/puppet/puppet5-release-fedora-25.noarch.rpm
             dnf install git puppet-agent -y
         ;;
-            echo "Fedora 26-27"
         26|27)
+            echo "Fedora 26-27"
             rpm -ivh http://yum.puppetlabs.com/puppet/puppet5-release-fedora-26.noarch.rpm
             dnf install git puppet-agent -y
         ;;
