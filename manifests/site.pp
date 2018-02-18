@@ -6,7 +6,7 @@
 # https://puppet.com/docs/puppet/5.3/nodes_external.html
 
 #include foo
-include cronpuppet
+include cron-puppet
 
 class example {
   if $facts['dmi']['board']['serial_number'] == 'PCCKA00QE0Z07O' {
