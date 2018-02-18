@@ -1,4 +1,4 @@
-class cronpuppet {
+class cron-puppet {
     cron { 'r10k-deploy':
         ensure  => present,
         command => "r10k deploy environment -p -c /etc/puppetlabs/r10k/r10k.yaml",
