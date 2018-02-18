@@ -1,4 +1,4 @@
-class examplerpm ( $src ) {
+class fedorarpmfsion {
 
   # Install Fedora free Rpmfusion
   package { "rpmfusion-free-release-$facts['os']['release']['full'].noarch":
