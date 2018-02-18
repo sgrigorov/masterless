@@ -14,7 +14,7 @@ class cronpuppet {
         user    => root,
         minute  => [5, 35],
     }
-    cron { 'r10k-deploy':
+    cron { 'r10k-deploy2':
         ensure  => present,
         command => "r10k deploy environment -p -c /etc/puppetlabs/r10k/r10k.yaml",
         environment => [ 'PATH="/opt/puppetlabs/bin/"' ],
