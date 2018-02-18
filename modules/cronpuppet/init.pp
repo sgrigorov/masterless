@@ -14,7 +14,13 @@ class cronpuppet {
         user    => root,
         minute  => [5, 35],
     }
-    
+    cron { 'puppet-apply2':
+        ensure  => present,
+        command => "puppet apply  /etc/puppetlabs/code/environments/production/manifests/site.pp",
+        environment => [ 'PATH="/opt/puppetlabs/bin/"' ],
+        user    => root,
+        minute  => [15, 45],
+    }    
     
     
     
