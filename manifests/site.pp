@@ -16,7 +16,14 @@ class example {
   if $facts['dmi']['product']['uuid'] == '85496604-84C8-4E36-B45E-785668BC3C64' {
     notify {"Message from GitHub: This is Vagrant Ubuntu":}
   }
-}
+  # ESXi Centos
+  if $facts['dmi']['product']['uuid'] == '564D72B9-071C-78AE-6AF9-A7D3F3275B98' {
+    notify {"Message from GitHub: This is ESXi CentOS":}
+  }
+  # ZorinOS Desktop
+  if $facts['dmi']['product']['uuid'] == '30AE8F00-A463-11E2-ADAE-8851FB409163' {
+    notify {"Message from GitHub: This is ZorinOS Desktop":}
+  }}
 
 #The default node
 node default {
