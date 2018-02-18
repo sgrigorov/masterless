@@ -1,12 +1,12 @@
 class examplerpm ( $src ) {
 
-  package { 'package':
+  package { 'rpmfusion-free-release-$facts['os']['release']['full'].noarch':
      provider => 'rpm',
-     ensure => installed,
-     source => "${examplerpm::src}"
+     ensure => present,
+     source => "${fusionfree::src}",
  }
 }
 
-class { 'examplerpm':
-  src => 'https://example.com/package.rpm',
+class { 'fusionfree':
+  src => "https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$facts['os']['release']['full'].noarch.rpm",
 }
