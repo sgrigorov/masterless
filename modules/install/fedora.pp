@@ -1,4 +1,4 @@
-class fedorarpmfsion {
+class install::fedora::fedorarpmfsion {
 
   # Install Fedora free Rpmfusion
   package { "rpmfusion-free-release-$facts['os']['release']['full'].noarch":
@@ -21,7 +21,7 @@ class fedorarpmfsion {
 # Class: gnometools
 # Installs Gnome Tools
 #
-class gnometools {
+class install::fedora::gnometools {
   # Gnome Tweak Tool
   package { "gnome-tweak-tool": ensure => present, }
   package { "dconf":            ensure => present, }
