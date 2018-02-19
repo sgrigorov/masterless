@@ -13,7 +13,7 @@ class example {
     notify {"Message from GitHub: This is the 16GGB ram + SSD laptop":}
     include install::fedorarpmfusion
     include install::gnometools
-    include install
+#    include install
   }
   # Vagrant Ubuntu
   if $facts['dmi']['product']['uuid'] == '85496604-84C8-4E36-B45E-785668BC3C64' {
