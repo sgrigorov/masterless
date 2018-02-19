@@ -1,5 +1,3 @@
-#test
-
 function apt_install {
     apt-get update
     apt-get -y install puppet-agent git
@@ -107,7 +105,7 @@ if [ ! -d "/etc/puppetlabs/r10k" ]; then mkdir /etc/puppetlabs/r10k; fi
 wget -O /etc/puppetlabs/r10k/r10k.yaml https://raw.githubusercontent.com/sgrigorov/masterless/production/files/puppetlabs/r10k.yaml
 #/usr/local/bin/r10k deploy environment -p -c /etc/$puppet_dir/r10k/r10k.yaml
 #https://github.com/adrienthebo/r10k/blob/master/doc/dynamic-environments/quickstart.mkd
-r10k deploy environment -p -c /etc/puppetlabs/r10k/r10k.yaml
+/opt/puppetlabs/bin/r10k deploy environment -p -c /etc/puppetlabs/r10k/r10k.yaml
 #curl https://raw.githubusercontent.com/sgrigorov/masterless/production/files/$puppet_dir/10_r10k_deploy_environment /etc/cron.hourly/10r10k_deploy_environment
 #puppet apply /etc/$puppet_dir/code/environments/production/manifests/site.pp
 puppet apply  /etc/puppetlabs/code/environments/production/manifests/site.pp 
