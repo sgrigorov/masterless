@@ -13,6 +13,7 @@ class example {
     notify {"Message from GitHub: This is the 16GGB ram + SSD laptop":}
     include install::fedorarpmfusion
     include install::gnometools
+    include install::media
 #    include install
   }
   # Vagrant Ubuntu
