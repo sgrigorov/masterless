@@ -1,4 +1,4 @@
-class install::fedora::fedorarpmfsion {
+class install::fedora::fedorarpmfusion {
 
   # Install Fedora free Rpmfusion
   package { "rpmfusion-free-release-$facts['os']['release']['full'].noarch":
