@@ -11,7 +11,7 @@ include cronpuppet
 class example {
   if $facts['dmi']['board']['serial_number'] == 'PCCKA00QE0Z07O' {
     notify {"Message from GitHub: This is the 16GGB ram + SSD laptop":}
-    include install::fedorarpmfusion
+#    include install::fedorarpmfusion
     include install::gnometools
 #    include install
   }
