@@ -11,6 +11,8 @@ include cronpuppet
 class example {
   if $facts['dmi']['board']['serial_number'] == 'PCCKA00QE0Z07O' {
     notify {"Message from GitHub: This is the 16GGB ram + SSD laptop":}
+    include fedorarpmfsion
+    include gnometools
   }
   # Vagrant Ubuntu
   if $facts['dmi']['product']['uuid'] == '85496604-84C8-4E36-B45E-785668BC3C64' {
