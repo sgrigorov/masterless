@@ -100,8 +100,10 @@ else
 fi
 source /etc/profile.d/puppet-agent.sh
 /opt/puppetlabs/puppet/bin/gem install r10k
-ln -s /opt/puppetlabs/puppet/bin/r10k /opt/puppetlabs/bin/r10k
-mkdir /etc/puppetlabs/r10k
+if [ ! -L "/opt/puppetlabs/bin/r10k" ]; then ln -s /opt/puppetlabs/puppet/bin/r10k /opt/puppetlabs/bin/r10k; fi
+#ln -s /opt/puppetlabs/puppet/bin/r10k /opt/puppetlabs/bin/r10k
+if [ ! -d "/etc/puppetlabs/r10k" ]; then mkdir /etc/puppetlabs/r10k; fi
+#mkdir /etc/puppetlabs/r10k
 wget -O /etc/puppetlabs/r10k/r10k.yaml https://raw.githubusercontent.com/sgrigorov/masterless/production/files/puppetlabs/r10k.yaml
 #/usr/local/bin/r10k deploy environment -p -c /etc/$puppet_dir/r10k/r10k.yaml
 #https://github.com/adrienthebo/r10k/blob/master/doc/dynamic-environments/quickstart.mkd
