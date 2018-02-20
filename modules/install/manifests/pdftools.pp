@@ -12,5 +12,12 @@ class install::pdftools {
     ensure    => present,
     source    => "http://get.code-industry.net/public/master-pdf-editor-4.3.82_qt5.x86_64.rpm",
   }
+  # if ubuntu
+  #package { "master-pdf-fedora":
+    #name      => "master-pdf-editor-4.3.82_qt5.x86_64",
+    #provider  => 'apt',
+    #ensure    => present,
+    #source    => "http://get.code-industry.net/public/master-pdf-editor-4.3.82_qt5.amd64.deb",
+  #}
 }
 
