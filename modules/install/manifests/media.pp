@@ -2,5 +2,6 @@
 #
 class install::media {
   # VLC
-  package { "vlc-core":         ensure => present, }
+  package { "vlc-core": ensure => present, }
+  package { "kodi":     ensure => present, }
 }
