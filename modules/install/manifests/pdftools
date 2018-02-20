@@ -1,8 +1,0 @@
-# Class: pdftools
-# Installs Master PDF Editor
-#
-class install::pdftools {
-  # Master PDF Editor
-  package { "VirtualBox": ensure => present, }
-  package { "vagrant": ensure => present, }
-}
