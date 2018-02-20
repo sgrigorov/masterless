@@ -9,12 +9,17 @@
 include cronpuppet
 
 class example {
+  # Fedora 16GB + SSD laptop
   if $facts['dmi']['board']['serial_number'] == 'PCCKA00QE0Z07O' {
-    notify {"Message from GitHub: This is the 16GGB ram + SSD laptop":}
+    notify {"Message from GitHub: This is the 16GB ram + SSD laptop":}
     include install::fedorarpmfusion
     include install::gnometools
     include install::media
 #    include install
+  }
+  # Fedora 4GB at work
+  if $facts['dmi']['board']['serial_number'] == 'CND0490K29' {
+    notify {"Message from GitHub: This is the 4GB ram laptop at work":}
   }
   # Vagrant Ubuntu
   if $facts['dmi']['product']['uuid'] == '85496604-84C8-4E36-B45E-785668BC3C64' {
