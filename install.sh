@@ -69,7 +69,7 @@ if [ -f "/etc/os-release" ]; then
       #rpm -ivh https://yum.puppetlabs.com/puppet5/puppet5-release-el-6.noarch.rpm
       #rpm -ivh http://yum.puppetlabs.com/puppetlabs-release-el-6.noarch.rpm
     ;;
-    fedora)
+    fedora|chapeau)
       echo "OS - Fedora"
       case $test_os_ver_id in
         25)
