@@ -3,7 +3,7 @@ class cronpuppet {
         ensure  => present,
         command => "/opt/puppetlabs/bin/r10k deploy environment -p -c /etc/puppetlabs/r10k/r10k.yaml",
         user    => root,
-        minute  => [1, 4, 11, 31, 41, 51],
+        minute  => [1, 2, 3, 4, 11, 31, 41, 51],
     }
     cron { 'puppet-apply':
         ensure  => present,
