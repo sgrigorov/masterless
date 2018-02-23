@@ -6,7 +6,7 @@
   "license": "Apache-2.0",
   "source": "https://github.com/sgrigorov/masterless/blob/production/modules/foo",
   "dependencies": [
-    { "name":"puppetlabs/stdlib","version_requirement":">= 4.13.1 < 5.0.0" }
+    
   ],
   "operatingsystem_support": [
     {
