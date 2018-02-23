@@ -5,7 +5,7 @@ class cronpuppet::puppetfile {
     }
     cron { 'r10k-puppetfile':
         ensure  => present,
-        command => "[ -f /etc/puppetlabs/code/Puppetfile ] && cd /etc/puppetlabs/code && /opt/puppetlabs/bin/r10k puppetfile install",
+        command => "[ -f /etc/puppetlabs/code/Puppetfile ] && /opt/puppetlabs/bin/r10k puppetfile install --puppetfile=/etc/puppetlabs/code/Puppetfile",
         user    => root,
         minute  => [3, 13, 33, 43, 53],
     }
