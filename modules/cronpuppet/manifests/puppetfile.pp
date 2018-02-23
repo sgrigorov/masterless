@@ -1,8 +1,8 @@
 class cronpuppet::puppetfile {
-    if [ ! -f /etc/puppetlabs/code/Puppetfile ] {
+#    if [ ! -f /etc/puppetlabs/code/Puppetfile ] {
     file { '/etc/puppetlabs/code/Puppetfile':
-        source  => /etc/puppetfile/code/environment/production/files/Puppetfile,
-    }
+        source  => '/etc/puppetfile/code/environment/production/files/Puppetfile',
+#    }
     }
     cron { 'r10k-puppetfile':
         ensure  => present,
