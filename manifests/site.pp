@@ -20,6 +20,7 @@ class example {
   # Fedora 4GB at work
   if $facts['dmi']['board']['serial_number'] == 'CND0490K29' {
     notify {"Message from GitHub: This is the 4GB ram laptop at work":}
+    include install::puppetfile
   }
   # Vagrant Ubuntu
   if $facts['dmi']['product']['uuid'] == '85496604-84C8-4E36-B45E-785668BC3C64' {
