@@ -21,3 +21,15 @@ exec { 'unzip':
   require     => File["/tmp/RRDI_INSTALLATION/"],
   refreshonly => true,
 }
+
+#https://forge.puppet.com/puppet/archive
+archive { '/tmp/something':
+  ensure        => present,
+  extract       => true,
+  extract_path  => '/tmp',
+  source        => 'http://www.somewhere.com/something.tar.gz',
+  checksum      => 'checksum hash',
+  checksum_type => 'sha1',
+  creates       => '/tmp/something',
+  cleanup       => true,
+}
