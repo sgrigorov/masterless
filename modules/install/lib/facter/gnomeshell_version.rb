@@ -1,6 +1,6 @@
 # _Description_
 #
-# Set a fact to return the version of GDM that is installed.
+# Set a fact to return the version of gnome-shell that is installed.
 # This is useful for applying the correct configuration file syntax.
 #
 Facter.add("gnomeshell_version") do
