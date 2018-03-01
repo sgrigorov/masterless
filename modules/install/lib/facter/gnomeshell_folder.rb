@@ -9,5 +9,7 @@ Facter.add('gnomeshell_folder') do
   setcode do
     folder = case Facter.value(:osfamily)
       when "RedHat" than "/usr/share/gnome-shell/extensions"
+      when "Debian" than "/usr/local/share/gnome-shell/extensions"
+    end      
   end
 end
