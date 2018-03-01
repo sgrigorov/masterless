@@ -11,10 +11,4 @@ class cronpuppet {
         user    => root,
         minute  => [5, 15, 25, 35, 45, 55],
     }
-    cron { 'r10k-deploy2':
-        ensure  => absent,
-    }
-    cron { 'puppet-apply2':
-        ensure  => absent,
-    }    
 }
