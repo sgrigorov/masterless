@@ -6,6 +6,6 @@
 Facter.add("gnomeshell_version") do
   confine { File.exist?('/usr/sbin/gdm') && File.executable?("/usr/sbin/gdm") }
   setcode do
-    %x{/usr/bin/gnome-shell --version}.chomp.split(/\s+/)[2]
+    %x{/usr/bin/gnome-shell --version}.chomp.split(/\s+/).last.match(/\d\.\d+/)
   end
 end
