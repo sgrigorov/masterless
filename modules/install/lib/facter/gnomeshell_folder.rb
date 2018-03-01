@@ -2,7 +2,7 @@
 #USER_PATH="$HOME/.local/share/gnome-shell/extensions"
 #[ -f /etc/debian_version ] && SYSTEM_PATH="/usr/local/share/gnome-shell/extensions" || SYSTEM_PATH="/usr/share/gnome-shell/extensions"
 # Return the UUID of the partition holding the /boot directory
-Facter.add('boot_dir_uuid') do
+Facter.add('gnomeshell_folder') do
   confine :kernel => 'Linux'
 
   setcode do
