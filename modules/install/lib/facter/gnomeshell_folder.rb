@@ -4,17 +4,14 @@
 # Return the UUID of the partition holding the /boot directory
 Facter.add('gnomeshell_folder') do
   confine :kernel => 'Linux'
+  confine { Folder.exist?('/usr/local/share/gnome-shell/extensions') || Folder.exist?("/usr/share/gnome-shell/extensions") }
 
   setcode do
-    df_cmd = Facter::Util::Resolution.which('df')
-    blkid_cmd = Facter::Util::Resolution.which('blkid')
-
-    partition = Facter::Core::Execution.exec("#{df_cmd} -P /boot").strip.split("\n").last.split(' ').first
-
-    uuid = Facter::Core::Execution.exec("#{blkid_cmd} -s UUID -o value #{partition}").strip
-
-    uuid = nil if (uuid.nil? || uuid.empty?)
-
-    uuid
+    folder = case Facter.value(:osfamily)
+      when "RedHat" than {
+        if Folder.exist?("/usr/share/gnome-shell/extensions")
+          "/usr/share/gnome-shell/extensions"
+        end        
+        }
   end
 end
