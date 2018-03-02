@@ -33,7 +33,7 @@ class example {
   # ZorinOS Desktop
   if $facts['dmi']['product']['uuid'] == '30AE8F00-A463-11E2-ADAE-8851FB409163' {
     notify {"Message from GitHub: This is ZorinOS Desktop":}
-    include install::ssh-server
+    include install::server-ssh
   }}
 
 #The default node
