@@ -2,6 +2,6 @@
 # Class: ssh-server
 # Installs ssh-server
 #
-class install::server-ssh {
+class install::sshserver {
   package { "openssh-server":  ensure => present, }
 }
