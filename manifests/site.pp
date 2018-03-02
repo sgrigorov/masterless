@@ -35,8 +35,13 @@ class example {
     notify {"Message from GitHub: This is ZorinOS Desktop":}
     include install::sshserver
     #include install::tools
+  }
   # BSM-CHA-01 - 192.168.0.128
-  }}
+  if $facts['dmi']['board']['serial_number'] == '2UA22425L5' {
+    notify {"Message from GitHub: This is BSM-CHA-01 Desktop":}
+    include install::sshserver
+  }
+ }
 
 #The default node
 node default {
