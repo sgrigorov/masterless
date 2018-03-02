@@ -30,11 +30,12 @@ class example {
   if $facts['dmi']['product']['uuid'] == '564D72B9-071C-78AE-6AF9-A7D3F3275B98' {
     notify {"Message from GitHub: This is ESXi CentOS":}
   }
-  # ZorinOS Desktop
+  # ZorinOS Desktop - 192.168.0.135
   if $facts['dmi']['product']['uuid'] == '30AE8F00-A463-11E2-ADAE-8851FB409163' {
     notify {"Message from GitHub: This is ZorinOS Desktop":}
     include install::sshserver
     #include install::tools
+  # BSM-CHA-01 - 192.168.0.128
   }}
 
 #The default node
