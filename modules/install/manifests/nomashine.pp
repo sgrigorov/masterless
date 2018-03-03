@@ -3,7 +3,7 @@
 # Installs Media applications
 #
 class install::nomachine {
-  case Facter.value(:osfamily)
+  case $facts['osfamily']
     when "RedHat" then
       package { 'NoMachine':
       ensure   => 'installed',
