@@ -15,6 +15,7 @@ class example {
     include install::fedorarpmfusion
     include install::gnometools
     include install::media
+    include install::nomachine
 #    include install
   }
   # Fedora 4GB at work
