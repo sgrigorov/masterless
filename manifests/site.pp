@@ -41,6 +41,11 @@ class example {
     notify {"Message from GitHub: This is BSM-CHA-01 Desktop":}
     include install::sshserver
   }
+  # zorin-03 - test laptop - 192.168.2.129
+  if $facts['dmi']['board']['serial_number'] == 'CND0490K2M' {
+    notify {"Message from GitHub: This is zorin-03 Desktop":}
+    include install::sshserver
+  }
  }
 
 #The default node
