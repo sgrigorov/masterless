@@ -55,7 +55,7 @@ class example {
     include install::sshserver
   }
   # 2CE9374JBN - fedoratest01 - 192.168.2.166
-  # 2CE9374JBQ - ubuntu 192.168.2.180
+  # 2CE9374JBQ - ubuntu 192.168.2.186
   
  }
 
