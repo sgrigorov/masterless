@@ -6,8 +6,9 @@ class install::nomachine {
 #class install::nomachine (
   $version = '6.0.78_1_x86_64'
 #)
+  $version_installed = $facts['nomachine_installed']
   if $facts['nomachine_installed'] {
-      notify {"Nomachine $facts['nomachine_installed'] is already installed":}
+      notify {"Nomachine $version_installed is already installed":}
     } else {
       case $facts['osfamily'] {
         'RedHat': {
