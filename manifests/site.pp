@@ -43,7 +43,15 @@ class example {
   }
   # zorin-03 - test laptop - 192.168.2.129
   if $facts['dmi']['board']['serial_number'] == 'CND0490K2M' {
-    notify {"Message from GitHub: This is zorin-03 Desktop":}
+    notify {"Message from GitHub: This is zorin-03 Laptop":}
+    include install::sshserver
+  }  
+  if $facts['dmi']['board']['serial_number'] == '2CE9374JBN' {
+    notify {"Message from GitHub: This is fedoratest01 Laptop":}
+    include install::sshserver
+  }
+  if $facts['dmi']['board']['serial_number'] == '2CE9374JBQ' {
+    notify {"Message from GitHub: This is ubuntu test Laptop":}
     include install::sshserver
   }
   # 2CE9374JBN - fedoratest01
