@@ -46,6 +46,9 @@ class example {
     notify {"Message from GitHub: This is zorin-03 Desktop":}
     include install::sshserver
   }
+  # 2CE9374JBN - fedoratest01
+  # 2CE9374JBQ - ubuntu
+  
  }
 
 #The default node
