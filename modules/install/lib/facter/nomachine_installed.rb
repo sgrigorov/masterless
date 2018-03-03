@@ -1,18 +1,6 @@
 Facter.add('nomachine_installed') do
-  confine :kernel => 'Linux'
+  confine { :kernel => 'Linux' && File.exist?('/usr/NX/bin/nxserver') && File.executable?("/usr/NX/bin/nxserver") }
   setcode do
-    folder = case Facter.value(:osfamily)
-      when "RedHat" then
-        if File.directory? "/usr/share/gnome-shell/extensions"
-          "/usr/share/gnome-shell/extensions"
-        end
-      when "Debian" then
-        if File.directory? "/usr/local/share/gnome-shell/extensions"
-          "/usr/local/share/gnome-shell/extensions"
-        end
-        if File.directory? "/usr/share/gnome-shell/extensions"
-          "/usr/share/gnome-shell/extensions"
-        end
-    end      
+    %x{/usr/NX/bin/nxserver}.chomp.split(/\s+/).last
   end
 end
