@@ -18,7 +18,7 @@ class example {
 #    include install
   }
   # Fedora 4GB at work
-  if $facts['dmi']['board']['serial_number'] == 'CND0490K29' {
+  if $facts['dmi']['product']['serial_number'] == 'CND0490K29' {
     notify {"Message from GitHub: This is the 4GB ram laptop at work":}
     include cronpuppet::puppetfile
   }
