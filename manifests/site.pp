@@ -10,7 +10,7 @@ include cronpuppet
 
 class example {
   # Fedora 16GB + SSD laptop
-  if $facts['dmi']['board']['serial_number'] == 'PCCKA00QE0Z07O' {
+  if $facts['dmi']['product']['serial_number'] == 'PCCKA00QE0Z07O' {
     notify {"Message from GitHub: This is the 16GB ram + SSD laptop":}
     include install::fedorarpmfusion
     include install::gnometools
@@ -37,7 +37,7 @@ class example {
     #include install::tools
   }
   # BSM-CHA-01 - 192.168.0.128
-  if $facts['dmi']['board']['serial_number'] == '2UA22425L5' {
+  if $facts['dmi']['product']['serial_number'] == '2UA22425L5' {
     notify {"Message from GitHub: This is BSM-CHA-01 Desktop":}
     include install::sshserver
   }
