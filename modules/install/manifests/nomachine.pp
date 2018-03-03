@@ -4,7 +4,7 @@
 #
 class install::nomachine {
 #class install::nomachine (
-#  $version = '6.0.78_1_x86_64',
+  $version = '6.0.78_1_x86_64',
 #)
   case $facts['osfamily'] {
     'RedHat': {
