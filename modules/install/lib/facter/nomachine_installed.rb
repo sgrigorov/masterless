@@ -1,6 +1,6 @@
 Facter.add('nomachine_installed') do
   confine { File.exist?('/usr/NX/bin/nxserver') && File.executable?("/usr/NX/bin/nxserver") }
   setcode do
-    %x{/usr/bin/gnome-shell --version}.chomp.split(/\s+/).last.match(/\d\.\d+/)
+    %x{/usr/NX/bin/nxserver --version}.chomp.split(/\s+/)
   end
 end
