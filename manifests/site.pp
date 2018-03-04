@@ -37,6 +37,7 @@ class example {
     include install::sshserver
     include install::nomachine
     #include install::tools
+    include install::pdftools
   }
   # BSM-CHA-01 - 192.168.0.128
   if $facts['dmi']['product']['serial_number'] == '2UA22425L5' {
