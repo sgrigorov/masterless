@@ -11,15 +11,15 @@
 #        minute  => [3, 13, 33, 43, 53],
 #    }
 #}
-class install::puppetfile_r10k {
+class install::puppetfile::r10k {
   file { '/etc/puppetlabs/code/Puppetfile':
       source    => '/etc/puppetlabs/code/environments/production/files/Puppetfile',
       replace   => false,
       notify    => Exec['r10k_puppetfile'],
     }
   exec { 'r10k_puppetfile':
-      command     => 'r10k puppetfile install --puppetfile=/etc/puppetlabs/code/Puppetfile',
-      cwd         => '/opt/puppetlabs/bin',
+      command     => '/opt/puppetlabs/bin/r10k puppetfile install --puppetfile=/etc/puppetlabs/code/Puppetfile',
+      #cwd         => '/opt/puppetlabs/bin',
       #user        => 'root',
       require     => File['/etc/puppetlabs/code/Puppetfile'],
       subscribe   => File['/etc/puppetlabs/code/Puppetfile'],
