@@ -16,6 +16,7 @@ class install::pdftools {
             ensure    => present,
             source    => "http://get.code-industry.net/public/master-pdf-editor-${version}_qt5.x86_64.rpm",
           }
+        }
         'Debian': {
             file { 'master-pdf-fedora.deb':
               path   => "/tmp/master-pdf-editor-${version}_qt5.amd64.deb",
