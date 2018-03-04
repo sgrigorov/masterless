@@ -12,6 +12,7 @@
 #    }
 #}
 class install::puppetfile::r10k {
+  notify {"Message from Puppetfile - r10k":}
   file { '/etc/puppetlabs/code/Puppetfile':
       source    => '/etc/puppetlabs/code/environments/production/files/Puppetfile',
       replace   => false,
