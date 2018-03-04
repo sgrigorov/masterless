@@ -15,8 +15,9 @@ class install::sshserver {
     'Debian': {
         notify {"Debian ssh":}
         service { 'ssh':
-        ensure    => "running",
-        enable    => "true",
+        provider => 'systemd',
+        ensure    => running,
+        enable    => true,
         }
     }
   }
