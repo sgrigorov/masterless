@@ -8,20 +8,18 @@ class install::pdftools {
   if $facts['masterpdfeditor_installed'] {
       notify {"master-pdf-editor is already installed":}
     } else {
+      package { "qt5-qtsvg": ensure => present, }
       case $facts['osfamily'] {
         'RedHat': {
-          package { "qt5-qtsvg":
-#            name      => "master-pdf-editor-${version}_qt5",
-#            provider  => 'rpm',
-            ensure    => present,
-#            source    => "http://get.code-industry.net/public/master-pdf-editor-${version}_qt5.x86_64.rpm",
-          }
+#          package { "qt5-qtsvg":
+#            ensure    => present,
+#          }
           package { "master-pdf-fedora":
             name      => "master-pdf-editor-${version}_qt5",
             provider  => 'rpm',
             ensure    => present,
             source    => "http://get.code-industry.net/public/master-pdf-editor-${version}_qt5.x86_64.rpm",
-            require   => Package ['qt5-qtsvg'],
+            require   => Package['qt5-qtsvg'],
           }
         }
         'Debian': {
@@ -34,6 +32,7 @@ class install::pdftools {
               provider => 'dpkg',
               ensure   => 'present',
               source   => "/tmp/master-pdf-editor-${version}_qt5.amd64.deb",
+              require   => Package['qt5-qtsvg'],
             }
           }
         }
