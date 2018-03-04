@@ -4,8 +4,18 @@
 #
 class install::sshserver {
   package { "openssh-server":  ensure => present, }
-  service { 'sshd':
-    ensure    => running,
-    enable    => true,
+  case $facts['osfamily'] {
+    'RedHat': {
+        service { 'sshd':
+        ensure    => running,
+        enable    => true,
+      }
+    }
+    'Debian': {
+        service { 'ssh':
+        ensure    => running,
+        enable    => true,
+        }
+    }
   }
 }
