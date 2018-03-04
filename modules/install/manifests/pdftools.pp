@@ -10,11 +10,18 @@ class install::pdftools {
     } else {
       case $facts['osfamily'] {
         'RedHat': {
-            package { "master-pdf-fedora":
+          package { "qt5-qtsvg":
+#            name      => "master-pdf-editor-${version}_qt5",
+#            provider  => 'rpm',
+            ensure    => present,
+#            source    => "http://get.code-industry.net/public/master-pdf-editor-${version}_qt5.x86_64.rpm",
+          }
+          package { "master-pdf-fedora":
             name      => "master-pdf-editor-${version}_qt5",
             provider  => 'rpm',
             ensure    => present,
             source    => "http://get.code-industry.net/public/master-pdf-editor-${version}_qt5.x86_64.rpm",
+            require   => Package ['qt5-qtsvg'],
           }
         }
         'Debian': {
