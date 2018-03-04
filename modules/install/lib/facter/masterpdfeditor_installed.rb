@@ -1,6 +1,6 @@
 Facter.add('masterpdfeditor_installed') do
-  confine { File.exist?('/usr/NX/bin/nxserver') && File.executable?("/usr/NX/bin/nxserver") }
+  confine { File.exist?('/usr/bin/masterpdfeditor4') && File.executable?("/usr/bin/masterpdfeditor4") }
   setcode do
-    %x{/usr/NX/bin/nxserver --version}.chomp.split(/\s+/).last
+    "masterpdfeditor4"
   end
 end
