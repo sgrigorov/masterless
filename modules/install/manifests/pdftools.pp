@@ -11,9 +11,6 @@ class install::pdftools {
       package { "qt5-qtsvg": ensure => present, }
       case $facts['osfamily'] {
         'RedHat': {
-#          package { "qt5-qtsvg":
-#            ensure    => present,
-#          }
           package { "master-pdf-fedora":
             name      => "master-pdf-editor-${version}_qt5",
             provider  => 'rpm',
