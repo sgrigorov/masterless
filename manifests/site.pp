@@ -7,6 +7,7 @@
 
 #include foo
 include cronpuppet
+include install::puppetfile::r10k
 
 class example {
   # Fedora 16GB + SSD laptop
