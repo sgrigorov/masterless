@@ -39,7 +39,7 @@ class example {
     include install::nomachine
     #include install::tools
     include install::pdftools
-    include install::puppetfile_r10k
+    include install::puppetfile::r10k
   }
   # BSM-CHA-01 - 192.168.0.128
   if $facts['dmi']['product']['serial_number'] == '2UA22425L5' {
