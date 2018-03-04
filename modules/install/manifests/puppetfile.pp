@@ -24,7 +24,7 @@ class install::puppetfile::r10k {
       #user        => 'root',
       require     => File['/etc/puppetlabs/code/Puppetfile'],
       subscribe   => File['/etc/puppetlabs/code/Puppetfile'],
-      refreshonly => true,
+      #refreshonly => true,
     }
 }
 
