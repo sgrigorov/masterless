@@ -20,6 +20,9 @@ class install::nomachine {
           }
         }
         'Debian': {
+        file { 'nomachine_${version}_amd64.deb':
+          source => [  "http://download.nomachine.com/download/6.0/Linux/nomachine_${version}_amd64.deb",  ]
+        }
 #          package { 'NoMachine':
 #            name     => 'nomachine_${version}',
 #            ensure   => 'present',
