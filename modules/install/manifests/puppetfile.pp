@@ -13,8 +13,17 @@
 #}
 class install::puppetfile::r10k {
   notify {"Message from Puppetfile - r10k":}
+  $pupetfile_str = "# Install puppetlabs-stdlib from the Forge
+                    # !!!! Puppetfile doesn't install the dependencies
+                    # !!!! Puppetfile installs only listed modules
+                    moduledir '/etc/puppetlabs/code/modules'
+                    mod 'puppetlabs/stdlib'
+                    #mod 'puppetlabs/apache', :latest
+                    #mod 'puppetlabs/apt'
+                    "
   file { '/etc/puppetlabs/code/Puppetfile':
-      source    => '/etc/puppetlabs/code/environments/production/files/Puppetfile',
+      #source    => '/etc/puppetlabs/code/environments/production/files/Puppetfile',
+      content => $pupetfile_str,
       replace   => false,
       notify    => Exec['r10k_puppetfile'],
     }
