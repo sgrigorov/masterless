@@ -22,7 +22,7 @@ class install::nomachine {
         }
         'Debian': {
         file { 'nomachine_amd64.deb':
-          path   => '/tmp/nomachine_${version}_amd64.deb'
+          path   => '/tmp/nomachine_${version}_amd64.deb',
           source => [  "http://download.nomachine.com/download/6.0/Linux/nomachine_${version}_amd64.deb",  ]
         }
 #          package { 'NoMachine':
