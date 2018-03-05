@@ -1,5 +1,5 @@
 Facter.add("systemd-timesyncd") do
   setcode do
-    %x{/bin/systemctl status systemd-timesyncd}.split(/\n/)[1].split(/:/).last.strip.split(/\)/)[0]
+    %x{/bin/systemctl show -p LoadState systemd-timesyncd}
   end
 end
