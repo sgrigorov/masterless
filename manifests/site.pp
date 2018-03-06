@@ -18,6 +18,7 @@ class example {
     include install::media
     include install::nomachine
     include install::pdftools
+    include tools::time_syncd
 #    include install
   }
   # Fedora 4GB at work
