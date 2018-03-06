@@ -1,5 +1,5 @@
 #ensure service is enabled and running
-if [ -f /usr/lib/systemd/systemd-timesyncd ] {
+if $facts['nomachine_installed'] {
 notify "systemd-timesyncd exist"
 } else {
 notify "systemd-timesyncd does not exist"
