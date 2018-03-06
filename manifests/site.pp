@@ -33,6 +33,7 @@ class example {
   # ESXi Centos
   if $facts['dmi']['product']['uuid'] == '564D72B9-071C-78AE-6AF9-A7D3F3275B98' {
     notify {"Message from GitHub: This is ESXi CentOS":}
+    include tools::time_syncd
   }
   # ZorinOS Desktop - 192.168.0.135
   if $facts['dmi']['product']['uuid'] == '30AE8F00-A463-11E2-ADAE-8851FB409163' {
@@ -42,6 +43,7 @@ class example {
     #include install::tools
     include install::pdftools
     include install::puppetfile::r10k
+    include tools::time_syncd
   }
   # BSM-CHA-01 - 192.168.0.128
   if $facts['dmi']['product']['serial_number'] == '2UA22425L5' {
@@ -84,6 +86,7 @@ class puppet_test_install {
     include install::sshserver
     include install::nomachine
     include install::pdftools
+    include tools::time_syncd
 }
 #Multiple names
 #node 'www1.example.com', 'www2.example.com', 'www3.example.com' {
