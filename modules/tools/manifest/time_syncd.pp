@@ -1,8 +1,8 @@
 #ensure service is enabled and running
-if $facts['nomachine_installed'] {
-notify "systemd-timesyncd exist"
+if $facts['ntpd'] == 'LoadState=not-found' {
+notify "ntpd not found"
 } else {
-notify "systemd-timesyncd does not exist"
+notify "ntpd found"
 }
 #service { 'systemd-timesyncd':
 #        provider => 'systemd',
