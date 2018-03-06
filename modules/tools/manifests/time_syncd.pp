@@ -6,7 +6,7 @@ class tools::time_syncd {
       notify { "systemd-timesyncd found": }
       service { 'systemd-timesyncd':
         provider => 'systemd',
-        ensure    => running,
+        ensure    => stopped,
         enable    => true,
       }
     } else {
@@ -18,7 +18,7 @@ class tools::time_syncd {
       notify { "systemd-timesyncd not found": }
       service { 'ntpd':
         #provider => 'systemd',
-        ensure    => running,
+        ensure    => stopped,
         enable    => true,
       }
     } else {
