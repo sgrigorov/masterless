@@ -9,8 +9,9 @@ class tools::time_syncd {
         ensure    => running,
         enable    => true,
       }
+    } else {
+      notify { "time sync not found": }
     }
-    notify { "time sync not found": }
   } else {
     notify { "ntpd found": }
     if $facts['systemd-timesyncd'] != 'LoadState=loaded' {
@@ -20,8 +21,9 @@ class tools::time_syncd {
         ensure    => running,
         enable    => true,
       }
+    } else {
+      notify { "too many time syncs": }
     }
-    notify { "too many time syncs": }
   }
 }
 #service { 'systemd-timesyncd':
