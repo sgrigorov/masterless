@@ -4,7 +4,6 @@
 class install::timesyncd {
   case $facts['osname'] {
     'RedHat', 'CentOS', 'Debian': {
- #       notify {"RedHat sshd":}
       package { "chronyd":  ensure => present, }
       service { 'ntpd':
         ensure    => stopped,
@@ -16,12 +15,11 @@ class install::timesyncd {
       }
     }
     'Fedora': {
-#        notify {"Debian ssh":}
-        service { 'ssh':
+      service { 'systemd-timesyncd':
         provider => 'systemd',
         ensure    => running,
         enable    => true,
-        }
+      }
     }
   }
 }
