@@ -4,7 +4,7 @@
 class install::timesyncd {
   case $facts['os']['name'] {
     'RedHat', 'CentOS', 'Debian': {
-      package { "chronyd":  ensure => present, }
+      package { "chrony":  ensure => present, }
       service { 'ntpd':
         ensure    => stopped,
         enable    => false,
