@@ -80,11 +80,6 @@ class example {
   
  }
 
-#The default node
-node default {
-include example
-}
-
 class puppet_test_install {
     include install::sshserver
     include install::nomachine
@@ -92,6 +87,14 @@ class puppet_test_install {
     #include tools::time_syncd
     include install::timesyncd
 }
+
+
+
+#The default node
+node default {
+include example
+}
+
 #Multiple names
 #node 'www1.example.com', 'www2.example.com', 'www3.example.com' {
 #  include common
