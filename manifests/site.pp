@@ -30,7 +30,7 @@ class example {
   if $facts['dmi']['product']['uuid'] == '85496604-84C8-4E36-B45E-785668BC3C64' {
     notify {"Message from GitHub: This is Vagrant Ubuntu":}
   }
-  # ESXi Centos
+  # ESXi Centos - 192.168.0.110
   if $facts['dmi']['product']['uuid'] == '564D72B9-071C-78AE-6AF9-A7D3F3275B98' {
     notify {"Message from GitHub: This is ESXi CentOS":}
     include tools::time_syncd
