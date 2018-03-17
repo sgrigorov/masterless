@@ -9,4 +9,6 @@ class install::tools {
   package { "tilix":            ensure => present, }
   package { "powerline":        ensure => present, }
   package { "powerline-fonts":  ensure => present, }
+  #core utilities for SElinux - RedHat osfamily
+  package { "policycoreutils":  ensure => present, }
 }
