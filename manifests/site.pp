@@ -76,7 +76,7 @@ class example {
     include puppet_test_install
   }
   if $facts['hostname'] == 'ub1804-01' {
-    notify {"Message from GitHub: This is ubuntu test Laptop":}
+    notify {"Message from GitHub: This is ubuntu 18.04 LTS test Laptop":}
     #include install::sshserver
     #include install::nomachine
     #include install::pdftools
