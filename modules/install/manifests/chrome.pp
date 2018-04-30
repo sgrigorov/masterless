@@ -25,11 +25,17 @@ gpgkey=https://dl.google.com/linux/linux_signing_key.pub
         }
      }
     'Debian': {
-        file { 'chrome_repository':
+        file { 'apt_chrome_repository':
             path    =>  '/etc/apt/sources.list.d/google-chrome.list',
-            ensure  =>  present,
             content =>  'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main',
             replace =>  false,
+            notify    => Exec['apt_update'],
+        }
+        exec { 'apt_update':
+          command     => '/usr/bin/apt update',
+          require     => File['apt_chrome_repository'],
+          subscribe   => File['apt_chrome_repository'],
+          #refreshonly => true,
         }
      }
   }
