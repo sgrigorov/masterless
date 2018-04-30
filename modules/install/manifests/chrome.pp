@@ -21,7 +21,7 @@ class install::chrome {
             path    =>  '/etc/apt/sources.list.d/google-chrome.list',
             ensure  =>  present,
             #content =>  $google_chrome_str,
-            content =>  "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main",
+            content =>  'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main',
             replace =>  false,
         }
      }
