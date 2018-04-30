@@ -46,6 +46,7 @@ class example {
     include install::pdftools
     include install::puppetfile::r10k
     include install::timesyncd
+    include install::chrome
   }
   # BSM-CHA-01 - 192.168.0.128
   if $facts['dmi']['product']['serial_number'] == '2UA22425L5' {
