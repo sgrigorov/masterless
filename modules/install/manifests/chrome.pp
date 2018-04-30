@@ -16,11 +16,12 @@ class install::chrome {
         }
      }
     'Debian': {
-        $google_chrome_str = "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main"
+        #$google_chrome_str = "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main"
         file { 'chrome_repository':
             path    =>  '/etc/apt/sources.list.d/google-chrome.list',
             ensure  =>  present,
-            content =>  $google_chrome_str,
+            #content =>  $google_chrome_str,
+            content =>  "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main",
             replace =>  false,
         }
      }
