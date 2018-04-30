@@ -20,6 +20,7 @@ class example {
     include install::pdftools
 #    include tools::time_syncd
     include install::timesyncd
+    include  install::chrome
     
 #    include install
   }
