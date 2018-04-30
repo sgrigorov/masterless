@@ -41,7 +41,7 @@ gpgkey=https://dl.google.com/linux/linux_signing_key.pub
   }
   package { "google-chrome-stable": 
       ensure => present,
-      subscribe => File['chrome_repository'],
+      subscribe => File['apt_chrome_repository'],
   }
 }
 
