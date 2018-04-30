@@ -7,7 +7,7 @@ class install::chrome {
   file { '/etc/apt/sources.list.d/google-chrome.list':
       content => $google_chrome_str,
       replace   => false,
-      notify    => package['google-chrome-stable'],
+      #notify    => package['google-chrome-stable'],
     }
   package { "google-chrome-stable": 
       ensure => present,
