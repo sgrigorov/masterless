@@ -24,6 +24,7 @@ class install::chrome {
             replace =>  false,
         }
      }
+  }
   package { "google-chrome-stable": 
       ensure => present,
       subscribe => File['chrome_repository'],
