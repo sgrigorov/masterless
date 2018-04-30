@@ -7,8 +7,11 @@ class install::chrome {
   file { '/etc/apt/sources.list.d/google-chrome.list':
       content => $google-chrome_str,
       replace   => false,
-      #notify    => Exec['r10k_puppetfile'],
+      notify    => package['google-chrome-stable'],
     }
-  #package { "mypaint": ensure => present, }
+  package { "google-chrome-stable": 
+      ensure => present,
+      subscribe => File['/etc/apt/sources.list.d/google-chrome.list'],
+    }
 }
 
