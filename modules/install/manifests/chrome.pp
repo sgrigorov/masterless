@@ -3,9 +3,9 @@
 
 class install::chrome {
   notify {"Message from Chrome Install":}
-  $google-chrome_str = "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main"
+  $google_chrome_str = "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main"
   file { '/etc/apt/sources.list.d/google-chrome.list':
-      content => $google-chrome_str,
+      content => $google_chrome_str,
       replace   => false,
       notify    => package['google-chrome-stable'],
     }
