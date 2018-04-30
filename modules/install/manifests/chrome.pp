@@ -32,7 +32,7 @@ gpgkey=https://dl.google.com/linux/linux_signing_key.pub
             notify    => Exec['apt_update'],
         }
         exec { 'apt_update':
-          command     => '/usr/bin/apt update',
+          command     => "/usr/bin/apt update",
           require     => File['apt_chrome_repository'],
           subscribe   => File['apt_chrome_repository'],
           #refreshonly => true,
