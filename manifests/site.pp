@@ -13,7 +13,7 @@ class example {
   # Fedora 16GB + SSD laptop
   if $facts['dmi']['product']['serial_number'] == 'CNU12807HN' {
     notify {"Message from GitHub: This is the 16GB ram + SSD laptop":}
-    include install::fedorarpmfusion
+    include install::rpmfusion
     include install::gnometools
     include install::media
     include install::nomachine
