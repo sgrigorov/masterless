@@ -6,10 +6,7 @@ class install::rpmfusion {
       'CentOS': {
           notify {"Message from rpmfusion Install - CentOS":}
       }
-      'Chapeau': {
-            notify {"Message from rpmfusion Install - Chapeau":}
-      }
-      'Fedora': {
+      'Fedora', 'Chapeau': {
             notify {"Message from rpmfusion Install - Fedora":}
       }
     }
