@@ -1,4 +1,4 @@
-# http://download.nomachine.com/download/6.0/Linux/nomachine_6.0.78_1_x86_64.rpm
+# Latest download URL http://download.nomachine.com/download/6.1/Linux/nomachine_6.1.6_9_amd64.deb
 
 # Installs Media applications
 #
