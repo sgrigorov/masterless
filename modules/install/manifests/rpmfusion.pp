@@ -4,7 +4,20 @@ class install::rpmfusion {
     notify {"Message from rpmfusion Install":}
     case $osid {
       'CentOS': {
-          notify {"Message from rpmfusion Install - CentOS":}
+            # Install CentOS free Rpmfusion
+            package { "centos-rpmfusion-free":
+                name      => "rpmfusion-free-release-$osrelease.noarch",
+                provider  => 'rpm',
+                ensure    => present,
+                source    => "https://download1.rpmfusion.org/free/el/rpmfusion-free-release-$osrelease.noarch.rpm",
+            }
+            # Install CentOS nonfree Rpmfusion
+            package { "centos-rpmfusion-nonfree":
+                name      => "rpmfusion-nonfree-release-$osrelease.noarch",
+                provider  => 'rpm',
+                ensure    => present,
+                source    => "https://download1.rpmfusion.org/nonfree/el/rpmfusion-nonfree-release-$osrelease.noarch.rpm",
+            }
       }
       'Fedora', 'Chapeau': {
             # Install Fedora free Rpmfusion
