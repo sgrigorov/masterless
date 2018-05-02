@@ -4,7 +4,7 @@
 #
 class install::nomachine {
 #class install::nomachine (
-  $version = '6.0.78_1'
+  $version = '6.1.6_9'
 #)
   $version_installed = $facts['nomachine_installed']
   if $facts['nomachine_installed'] {
@@ -16,13 +16,13 @@ class install::nomachine {
             name     => 'nomachine_${version}',
             ensure   => 'present',
             provider => 'rpm',
-            source   => "http://download.nomachine.com/download/6.0/Linux/nomachine_${version}_x86_64.rpm"
+            source   => "http://download.nomachine.com/download/6.1/Linux/nomachine_${version}_x86_64.rpm"
           }
         }
         'Debian': {
         file { 'nomachine_amd64.deb':
             path   => "/tmp/nomachine_${version}_amd64.deb",
-            source => [  "http://download.nomachine.com/download/6.0/Linux/nomachine_${version}_amd64.deb",  ],
+            source => [  "http://download.nomachine.com/download/6.1/Linux/nomachine_${version}_amd64.deb",  ],
           }
         package { 'NoMachine':
             name     => 'nomachine_${version}',
