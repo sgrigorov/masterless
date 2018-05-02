@@ -6,7 +6,7 @@ class install::chrome {
   case $facts['osfamily'] {
     'RedHat': {
         file { 'chrome_repository':
-            path    =>  '/etc/yum.repos.d/google-chrome1.repo',
+            path    =>  '/etc/yum.repos.d/google-chrome.repo',
             ensure  =>  present,
             content =>  '[google-chrome]
                          name=google-chrome
