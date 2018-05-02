@@ -31,7 +31,7 @@ gpgkey=https://dl.google.com/linux/linux_signing_key.pub
             replace =>  false,
             notify    => Exec['apt_key_add'],
         }
-        exec { 'apt_key-add':
+        exec { 'apt_key_add':
           command     => "wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -",
           require     => File['apt_chrome_repository'],
           subscribe   => File['apt_chrome_repository'],
