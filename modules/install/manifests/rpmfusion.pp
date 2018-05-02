@@ -1,5 +1,5 @@
 class install::rpmfusion {
-    notify {"Message from rpmfusion Install":}
+    notify {"Message from rpmfusion Install":},
     notify {$facts['os']['id']:}
     case $facts['os']['id'] {
       'CentOS': {
