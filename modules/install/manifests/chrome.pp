@@ -33,14 +33,10 @@ gpgkey=https://dl.google.com/linux/linux_signing_key.pub
         }
         exec { 'apt_key_add':
           command     => "/usr/bin/wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -",
-          require     => File['apt_chrome_repository'],
-          subscribe   => File['apt_chrome_repository'],
           #refreshonly => true,
         }
         exec { 'apt_update':
           command     => "/usr/bin/apt update -y",
-          require     => File['apt_chrome_repository'],
-          subscribe   => File['apt_chrome_repository'],
           #refreshonly => true,
         }
      }
