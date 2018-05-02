@@ -104,6 +104,7 @@ class puppet_test_install {
     include install::pdftools
     #include tools::time_syncd
     include install::timesyncd
+    include install::chrome
 }
 
 
