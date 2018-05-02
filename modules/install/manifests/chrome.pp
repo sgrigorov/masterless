@@ -27,7 +27,7 @@ gpgkey=https://dl.google.com/linux/linux_signing_key.pub
      }
     'Debian': {
         notify {"Message from Chrome Install - Debian":}
-        file { 'apt_chrome_repository':
+        file { 'chrome_repository':
             path    =>  '/etc/apt/sources.list.d/google-chrome.list',
             content =>  'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main',
             replace =>  false,
@@ -46,8 +46,8 @@ gpgkey=https://dl.google.com/linux/linux_signing_key.pub
   notify {"Message from Chrome Install - package":}
   package { "google-chrome-stable": 
       ensure => present,
-      subscribe => File['apt_chrome_repository'],
-      require   => Exec['apt_update'],
+      subscribe => File['chrome_repository'],
+      #require   => Exec['apt_update'],
   }
 }
 
