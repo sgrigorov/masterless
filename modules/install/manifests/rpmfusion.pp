@@ -7,4 +7,5 @@ class install::rpmfusion {
       'Fedora|Chapeau': {
             notify {"Message from rpmfusion Install - Fedora":}
       }
-
+    }
+}
