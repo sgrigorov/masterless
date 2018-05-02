@@ -84,6 +84,14 @@ class example {
     #include install::pdftools
     #include puppet_test_install
     include install::chrome
+  }  
+  if $facts['hostname'] == 'stan-virtual-machine' {
+    notify {"Message from GitHub: This is ubuntu 18.04 LTS test Laptop":}
+    #include install::sshserver
+    #include install::nomachine
+    #include install::pdftools
+    #include puppet_test_install
+    include install::chrome
   }
   # 2CE9374JBN - fedoratest01 - 192.168.2.166
   # 2CE9374JBQ - ubuntu 192.168.2.186
