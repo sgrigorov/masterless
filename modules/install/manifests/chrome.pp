@@ -29,14 +29,20 @@ gpgkey=https://dl.google.com/linux/linux_signing_key.pub
             path    =>  '/etc/apt/sources.list.d/google-chrome.list',
             content =>  'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main',
             replace =>  false,
-            notify    => Exec['apt_update'],
+            notify    => Exec['apt_key_add'],
         }
-        exec { 'apt_update':
-          command     => "/usr/bin/apt update -y",
+        exec { 'apt_key-add':
+          command     => "wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -",
           require     => File['apt_chrome_repository'],
           subscribe   => File['apt_chrome_repository'],
           #refreshonly => true,
         }
+#        exec { 'apt_update':
+#          command     => "/usr/bin/apt update -y",
+#          require     => File['apt_chrome_repository'],
+#          subscribe   => File['apt_chrome_repository'],
+#          #refreshonly => true,
+#        }
      }
   }
   package { "google-chrome-stable": 
