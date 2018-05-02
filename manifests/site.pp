@@ -54,6 +54,7 @@ class example {
     notify {"Message from GitHub: This is BSM-CHA-01 Desktop":}
     include install::sshserver
     include install::timesyncd
+    include install::rpmfusion
   }
   # zorin-03 - test laptop - 192.168.2.129
   if $facts['dmi']['product']['serial_number'] == 'CND0490K2M' {
@@ -69,6 +70,7 @@ class example {
     #include install::nomachine
     #include install::pdftools
     include puppet_test_install
+    include install::rpmfusion
   }
   if $facts['dmi']['product']['serial_number'] == '2CE9374JBQ' {
     notify {"Message from GitHub: This is ubuntu test Laptop":}
@@ -92,6 +94,7 @@ class example {
     #include install::pdftools
     #include puppet_test_install
     include install::chrome
+    include install::rpmfusion
   }
   # 2CE9374JBN - fedoratest01 - 192.168.2.166
   # 2CE9374JBQ - ubuntu 192.168.2.186
