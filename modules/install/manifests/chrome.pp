@@ -37,17 +37,18 @@ gpgkey=https://dl.google.com/linux/linux_signing_key.pub
           subscribe   => File['apt_chrome_repository'],
           #refreshonly => true,
         }
-#        exec { 'apt_update':
-#          command     => "/usr/bin/apt update -y",
-#          require     => File['apt_chrome_repository'],
-#          subscribe   => File['apt_chrome_repository'],
-#          #refreshonly => true,
-#        }
+        exec { 'apt_update':
+          command     => "/usr/bin/apt update -y",
+          require     => File['apt_chrome_repository'],
+          subscribe   => File['apt_chrome_repository'],
+          #refreshonly => true,
+        }
      }
   }
   package { "google-chrome-stable": 
       ensure => present,
       subscribe => File['apt_chrome_repository'],
+      require   => Exec['apt_update'],
   }
 }
 
