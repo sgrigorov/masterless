@@ -1,5 +1,5 @@
 class install::rpmfusion {
-    $osid = $facts['os']['id']
+    $osid = $facts['os']['distro']['id']
     #notify {"Message from rpmfusion Install $osid":}
     notify {"M"$osid:}
     case $osid {
