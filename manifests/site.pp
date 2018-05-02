@@ -88,7 +88,7 @@ class example {
   if $facts['hostname'] == 'stan-virtual-machine' {
     notify {"Message from GitHub: This is ubuntu 18.04 LTS test Virtual Machine":}
     #include install::sshserver
-    #include install::nomachine
+    include install::nomachine
     #include install::pdftools
     #include puppet_test_install
     include install::chrome
