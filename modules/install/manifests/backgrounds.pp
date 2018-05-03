@@ -11,7 +11,6 @@ class install::backgrounds {
       'CentOS': {
             # Install CentOS backgrounds
             }
-      }
       'Fedora', 'Chapeau': {
             # Install Fedora backgrounds-extras-gnome
             package { "backgrounds-extras-gnome":
