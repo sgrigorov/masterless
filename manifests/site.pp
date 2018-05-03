@@ -20,8 +20,8 @@ class example {
     include install::pdftools
 #    include tools::time_syncd
     include install::timesyncd
-    include  install::chrome
-    
+    include install::chrome
+    include install::backgrounds
 #    include install
   }
   # Fedora 4GB at work
