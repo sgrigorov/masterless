@@ -35,9 +35,7 @@ class install::rpmfusion {
                 source    => "https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$osrelease.noarch.rpm",
             }
             # Install Third-party repositories
-            package { "fedora-workstation-repositories":
-                ensure   => present'
-            }
+            package { "fedora-workstation-repositories":     ensure   => present' }
       }
     }
 }
