@@ -28,6 +28,7 @@ class example {
     notify {"Message from GitHub: This is the 4GB ram laptop at work":}
     include install::rpmfusion
     include install::chrome
+    include install::backgrounds
     #include install::timesyncd
   }
   # Vagrant Ubuntu
