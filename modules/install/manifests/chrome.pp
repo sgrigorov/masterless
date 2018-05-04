@@ -37,8 +37,9 @@ class install::chrome {
   }
   notify {"Message from Chrome Install - package":}
   package { "google-chrome-stable": 
-      ensure => present,
-      subscribe => File['chrome_repository'],
+      ensure          => present,
+      subscribe       => File['chrome_repository'],
+      install_options => ['--enablerepo'],
   }
 }
 
