@@ -1,8 +1,8 @@
 class install::rpmfusion {
-    $osid = $facts['os']['distro']['id']
+    $osname = $facts['os']['name']
     $osrelease = $facts['os']['release']['full']
     notify {"Message from rpmfusion Install":}
-    case $osid {
+    case $osname {
       'CentOS': {
             # Install CentOS free Rpmfusion
             package { "centos-rpmfusion-free":
