@@ -30,6 +30,7 @@ class example {
     include install::chrome
     include install::backgrounds
     #include install::timesyncd
+    include install::cockpit
   }
   # Vagrant Ubuntu
   if $facts['dmi']['product']['uuid'] == '85496604-84C8-4E36-B45E-785668BC3C64' {
