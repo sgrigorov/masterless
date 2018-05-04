@@ -24,6 +24,10 @@ if [ -f "/etc/os-release" ]; then
           dpkg -i /tmp/puppet5-release-stretch.deb
           apt_install
         ;;
+        *)
+            echo "Other Debian - exit"
+            exit
+        ;;
       esac
 
     ;;
@@ -44,6 +48,10 @@ if [ -f "/etc/os-release" ]; then
                 dpkg -i /tmp/puppet5-release-xenial.deb
                 apt_install
              ;;
+             *)
+                echo "Other Ubuntu - exit"
+             exit
+        ;;
         esac
       # http://apt.puppetlabs.com/puppet-release-xenial.deb
       # http://apt.puppetlabs.com/puppet5-release-xenial.deb
@@ -65,6 +73,10 @@ if [ -f "/etc/os-release" ]; then
             rpm -ivh https://yum.puppetlabs.com/puppet5/puppet5-release-el-7.noarch.rpm
             yum install git wget puppet-agent -y
         ;;
+        *)
+            echo "Other CentOS - exit"
+        exit
+        ;;
       esac
       #rpm -ivh https://yum.puppetlabs.com/puppet5/puppet5-release-el-6.noarch.rpm
       #rpm -ivh http://yum.puppetlabs.com/puppetlabs-release-el-6.noarch.rpm
@@ -77,10 +89,19 @@ if [ -f "/etc/os-release" ]; then
             rpm -ivh http://yum.puppetlabs.com/puppet/puppet5-release-fedora-25.noarch.rpm
             dnf install git puppet-agent -y
         ;;
-        26|27)
+        26)
             echo "Fedora 26-27"
             rpm -ivh http://yum.puppetlabs.com/puppet/puppet5-release-fedora-26.noarch.rpm
             dnf install git puppet-agent -y
+        ;;
+        27|28)
+            echo "Fedora 26-27"
+            rpm -ivh http://yum.puppetlabs.com/puppet/puppet5-release-fedora-27.noarch.rpm
+            dnf install git puppet-agent -y
+        ;;
+        *)
+            echo "Other Fedora - exit"
+            exit
         ;;
       esac
     ;;
