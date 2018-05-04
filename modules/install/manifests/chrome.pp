@@ -16,6 +16,7 @@ class install::chrome {
                          gpgkey=https://dl.google.com/linux/linux_signing_key.pub',
             replace =>  false,
         }
+        yumrepo { 'google-chrome':  enabled => 'true'}
      }
     'Debian': {
         file { 'chrome_repository':
@@ -39,7 +40,6 @@ class install::chrome {
   package { "google-chrome-stable": 
       ensure          => present,
       subscribe       => File['chrome_repository'],
-      install_options => ['--enablerepo'],
   }
 }
 
