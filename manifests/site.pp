@@ -28,7 +28,7 @@ class example {
     notify {"Message from GitHub: This is the 4GB ram laptop at work":}
     include install::rpmfusion
     include install::chrome
-    include install::timesyncd
+    #include install::timesyncd
   }
   # Vagrant Ubuntu
   if $facts['dmi']['product']['uuid'] == '85496604-84C8-4E36-B45E-785668BC3C64' {
