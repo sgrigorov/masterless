@@ -11,7 +11,7 @@ class install::synergy {
         #service { "cockpit":
         #    ensure    => running,
         #    enable    => true,
-        }
+        #}
       }
     'Debian': {
     }
