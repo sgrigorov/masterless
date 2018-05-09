@@ -61,11 +61,12 @@ class example {
   }
   # zorin-03 - test laptop - 192.168.2.129
   if $facts['dmi']['product']['serial_number'] == 'CND0490K2M' {
-    notify {"Message from GitHub: This is zorin-03 Laptop":}
+    notify {"Message from GitHub: This is Ferpra 28 test Laptop":}
     #include install::sshserver
     #include install::nomachine
     #include install::pdftools
     include puppet_test_install
+    include install::synergy
   }  
   if $facts['dmi']['product']['serial_number'] == '2CE9374JBN' {
     notify {"Message from GitHub: This is fedoratest01 Laptop":}
