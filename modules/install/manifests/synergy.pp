@@ -4,7 +4,7 @@
 class install::synergy {
   notify {"Message from Synergy Install":}
   case $facts['osfamily'] {
-    'RedHat': {
+    'RedHat', 'Debian': {
         package { "synergy":    ensure  => present, }
         # Open port 8080
         # firewall-cmd --permanent --add-port=8080/tcp
@@ -13,7 +13,5 @@ class install::synergy {
         #    enable    => true,
         #}
       }
-    'Debian': {
-    }
   }
 }
