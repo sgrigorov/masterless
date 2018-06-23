@@ -1,4 +1,6 @@
 # install google chrome stable
+#
+#!!!!!! for Fedora - sudo dnf install fedora-workstation-repositories
 
 
 class install::chrome {
