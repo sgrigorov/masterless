@@ -1,6 +1,12 @@
 # install google chrome stable
 #
 #!!!!!! for Fedora - sudo dnf install fedora-workstation-repositories
+#Currently, enabling the new third-party repositories allows easy installation of the following software:
+#
+#Google Chrome — a web browser (Fedora 27 & Fedora 28)
+#PyCharm — a Python IDE (Fedora 27 & Fedora 28)
+#NVIDIA graphics drivers (Fedora 28 only)
+#Steam — a digital distribution method primarily used for games (Fedora 28 only)
 
 
 class install::chrome {
